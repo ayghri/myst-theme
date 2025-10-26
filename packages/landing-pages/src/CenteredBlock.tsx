@@ -39,26 +39,23 @@ export function CenteredBlock(props: Omit<LandingBlockProps, 'children'>) {
   }
   return (
     <LandingBlock {...props}>
-      <div className="relative text-center">
-        <div className="py-20 sm:py-28">
+      <div className="landing-centered-container">
+        <div className="landing-centered-padding">
           {subtitle && (
-            <p className="my-0 font-semibold text-indigo-400 uppercase">
+            <p className="landing-centered-subtitle">
               <MyST ast={subtitle.children} />
             </p>
           )}
           {heading && (
-            <BlockHeading
-              node={heading}
-              className="mt-2 mb-0 text-5xl font-semibold tracking-tight"
-            />
+            <BlockHeading node={heading} className="landing-centered-heading" />
           )}
           {body && (
-            <div className="mt-6">
+            <div className="landing-centered-body">
               <MyST ast={body} />
             </div>
           )}
           {links && (
-            <div className="flex flex-row flex-wrap items-center justify-center gap-4 mt-8">
+            <div className="landing-centered-links">
               <MyST ast={links} />
             </div>
           )}

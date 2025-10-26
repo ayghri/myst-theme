@@ -32,14 +32,13 @@ export function ArticleHeader({
     'col-page-left': grid === 'article-grid',
   };
   return (
-    <header className="relative col-screen">
+    <header className="myst-article-header">
       {frontmatter?.banner && (
         // This is the banner contained in a full-bleed div
         <div
           className={classNames(
-            'absolute',
+            'myst-article-header-banner',
             grid,
-            'subgrid-gap col-screen bg-no-repeat bg-cover bg-top w-full h-full -z-10 pointer-events-none',
           )}
           style={{
             backgroundImage: `url(${frontmatter?.banner})`,
@@ -48,9 +47,8 @@ export function ArticleHeader({
       )}
       <div
         className={classNames(
-          'w-full relative col-screen article',
+          'myst-article-header-content article',
           grid,
-          'subgrid-gap',
           {
             'my-[2rem] pb-[1rem] md:my-[4rem]': frontmatter?.banner,
             'my-[2rem]': !frontmatter?.banner,
@@ -64,28 +62,28 @@ export function ArticleHeader({
           })}
         >
           <div
-            className={classNames('flex w-full align-middle py-2 mb-[1rem] text-sm', {
+            className={classNames('myst-article-header-topbar', {
               'px-4 w-full': frontmatter?.banner,
               'bg-white/80 dark:bg-black/80': frontmatter?.banner,
               ...positionBackground,
             })}
           >
-            {subject && <div className={classNames('flex-none pr-2 smallcaps')}>{subject}</div>}
+            {subject && <div className="myst-article-header-subject">{subject}</div>}
             <Journal
               venue={venue}
               volume={volume}
               issue={issue}
-              className="hidden pl-2 border-l md:block"
+              className="myst-article-header-journal"
             />
-            <div className="flex-grow"></div>
-            <div className="hidden sm:block">
+            <div className="myst-article-header-spacer"></div>
+            <div className="myst-article-header-badges">
               <LicenseBadges license={frontmatter?.license} />
               <OpenAccessBadge open_access={frontmatter?.open_access} />
               <GitHubLink github={frontmatter?.github} />
             </div>
             {toggleTheme && <ThemeButton className="inline-block w-5 h-5 mt-0.5 ml-1" />}
           </div>
-          <div className="flex flex-col mb-10 md:flex-row">
+          <div className="myst-article-header-bottom">
             <FrontmatterBlock
               frontmatter={rest}
               authorStyle="list"

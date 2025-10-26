@@ -22,25 +22,25 @@ export function Bibliography({
   return (
     <section
       id="references"
-      className={classNames(grid, 'subgrid-gap col-screen', containerClassName)}
+      className={classNames(grid, 'myst-bibliography-section', containerClassName)}
     >
       <div className={innerClassName}>
         {!!hideLongBibliography && filtered.length > hideLongBibliography && (
           <button
             onClick={() => setHidden(!hidden)}
-            className="float-right p-1 px-2 text-xs border rounded hover:border-blue-500 dark:hover:border-blue-400"
+            className="myst-bibliography-toggle"
           >
             {hidden ? 'Show All' : 'Collapse'}
           </button>
         )}
-        <header className="text-lg font-semibold text-stone-900 dark:text-white group">
+        <header className="myst-bibliography-header">
           References
           <HashLink id="references" title="Link to References" hover className="ml-2" />
         </header>
       </div>
       <div
         className={classNames(
-          'pl-3 mb-8 text-xs text-stone-500 dark:text-stone-300',
+          'myst-bibliography-list',
           innerClassName,
         )}
       >
@@ -50,17 +50,17 @@ export function Bibliography({
             return (
               <li
                 key={label}
-                className="break-words"
+                className="myst-bibliography-item"
                 id={`cite-${label}`}
                 dangerouslySetInnerHTML={{ __html: html || '' }}
               />
             );
           })}
           {!!hideLongBibliography && filtered.length > hideLongBibliography && (
-            <li className="text-center list-none">
+            <li className="myst-bibliography-show">
               <button
                 onClick={() => setHidden(!hidden)}
-                className="p-2 border rounded hover:border-blue-500 dark:hover:border-blue-400"
+                className="myst-bibliography-show-button"
               >
                 {hidden ? `Show all ${filtered.length} references` : 'Collapse references'}
               </button>

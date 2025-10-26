@@ -5,16 +5,16 @@ export function InvalidBlock(props: Omit<LandingBlockProps, 'children'> & { bloc
   const { node, blockName } = props;
   return (
     <LandingBlock {...props}>
-      <div className="relative" role="alert">
-        <div className="px-4 py-2 font-bold text-white bg-red-500 rounded-t">
-          Invalid block <span className="font-mono">{blockName}</span>
+      <div className="landing-invalid-container" role="alert">
+        <div className="landing-invalid-header">
+          Invalid block <span className="landing-invalid-block-name">{blockName}</span>
         </div>
-        <div className="border border-t-0 border-red-400 rounded-b ">
-          <div className="px-4 py-3 text-red-700 bg-red-100">
+        <div className="landing-invalid-border">
+          <div className="landing-invalid-message">
             <p>This '{blockName}' block does not conform to the expected AST structure.</p>
           </div>
 
-          <div className="px-4 py-3">
+          <div className="landing-invalid-content">
             <MyST ast={node.children} />
           </div>
         </div>

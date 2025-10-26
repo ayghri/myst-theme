@@ -12,8 +12,8 @@ export function Keywords({
 }) {
   if (hideKeywords || !keywords || keywords.length === 0) return null;
   return (
-    <div className={classNames('mb-10 group', className)}>
-      <span className="mr-2 font-semibold">Keywords:</span>
+    <div className={classNames('myst-keywords', className)}>
+      <span className="myst-keywords-label">Keywords:</span>
       {keywords.map((k, i) => (
         <span
           key={k}

@@ -14,11 +14,11 @@ export function BlockHeading({ node, className }: { node: GenericParent; classNa
       id: id,
     },
     <>
-      {enumerator && <span className="mr-3 select-none">{enumerator}</span>}
+      {enumerator && <span className="landing-block-enumerator">{enumerator}</span>}
       <span className="heading-text">
         <MyST ast={node.children} />
       </span>
-      <HashLink id={id} kind="Section" className="font-normal" hover hideInPopup noWidth />
+      <HashLink id={id} kind="Section" className="landing-block-hash-link" hover hideInPopup noWidth />
     </>,
   );
 }

@@ -159,11 +159,11 @@ function isColor(maybeColorHash: string): string | undefined {
 const inlineCode: NodeRenderer = ({ node, className }) => {
   if (isColor(node.value)) {
     return (
-      <code className={classNames('myst-inline-code', className)}>
+      <code className={classNames('myst-code-inline', className)}>
         {node.value}
         <span
           style={{ backgroundColor: node.value }}
-          className="myst-inline-code-color-swatch"
+          className="myst-code-indicator"
         ></span>
       </code>
     );

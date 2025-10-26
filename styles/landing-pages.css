@@ -1,28 +1,197 @@
 /* CSS rules for grid configuration of landing pages */
 @layer components {
-  .grid-area-subtitle {
-    grid-area: subtitle;
-  }
-  .grid-area-title {
-    grid-area: title;
-  }
-  .grid-area-body {
-    grid-area: body;
-  }
-  .grid-area-links {
-    grid-area: links;
-  }
-  .grid-areas-just-narrow {
-    grid-template-areas:
-      'subtitle subtitle subtitle'
-      'title title title'
-      'body body body'
-      'links links links';
-  }
-  .grid-areas-just-wide {
-    grid-template-areas:
-      'subtitle subtitle subtitle'
-      'title . links'
-      'body body body';
-  }
+    .grid-area-subtitle {
+        grid-area: subtitle;
+    }
+
+    .grid-area-title {
+        grid-area: title;
+    }
+
+    .grid-area-body {
+        grid-area: body;
+    }
+
+    .grid-area-links {
+        grid-area: links;
+    }
+
+    .grid-areas-just-narrow {
+        grid-template-areas:
+            'subtitle subtitle subtitle'
+            'title title title'
+            'body body body'
+            'links links links';
+    }
+
+    .grid-areas-just-wide {
+        grid-template-areas:
+            'subtitle subtitle subtitle'
+            'title . links'
+            'body body body';
+    }
+}
+
+/* Landing Pages Package - Semantic CSS Classes */
+@layer base {
+
+    /* BlockHeading Component */
+    .landing-block-enumerator {
+        @apply mr-3 select-none;
+    }
+
+    .landing-block-hash-link {
+        @apply font-normal;
+    }
+
+    /* CenteredBlock Component */
+    .landing-centered-container {
+        @apply relative text-center;
+    }
+
+    .landing-centered-padding {
+        @apply py-20 sm:py-28;
+    }
+
+    .landing-centered-subtitle {
+        @apply my-0 font-semibold text-indigo-400 uppercase;
+    }
+
+    .landing-centered-heading {
+        @apply mt-2 mb-0 text-5xl font-semibold tracking-tight;
+    }
+
+    .landing-centered-body {
+        @apply mt-6;
+    }
+
+    .landing-centered-links {
+        @apply flex flex-row flex-wrap items-center justify-center gap-4 mt-8;
+    }
+
+    /* InvalidBlock Component */
+    .landing-invalid-container {
+        @apply relative;
+    }
+
+    .landing-invalid-header {
+        @apply px-4 py-2 font-bold text-white bg-red-500 rounded-t;
+    }
+
+    .landing-invalid-block-name {
+        @apply font-mono;
+    }
+
+    .landing-invalid-border {
+        @apply border border-t-0 border-red-400 rounded-b;
+    }
+
+    .landing-invalid-message {
+        @apply px-4 py-3 text-red-700 bg-red-100;
+    }
+
+    .landing-invalid-content {
+        @apply px-4 py-3;
+    }
+
+    /* JustifiedBlock Component */
+    .landing-justified-grid {
+        @apply grid grid-cols-[auto_1fr_auto] justify-between gap-2 py-20 sm:py-28 lg:px-8;
+    }
+
+    .landing-justified-subtitle {
+        @apply my-0 font-semibold text-indigo-400 uppercase;
+    }
+
+    .landing-justified-heading {
+        @apply mt-2 mb-0 text-5xl font-semibold tracking-tight;
+    }
+
+    .landing-justified-body {
+        @apply mt-6;
+    }
+
+    .landing-justified-links {
+        @apply flex flex-row flex-wrap items-center gap-4;
+    }
+
+    /* LandingBlock Component */
+    .landing-block {
+        @apply relative group/block py-6;
+    }
+
+    .landing-block-hidden {
+        @apply hidden;
+    }
+
+    /* LogoCloudBlock Component */
+    .landing-logo-cloud-container {
+        @apply py-20 text-center sm:py-28;
+    }
+
+    .landing-logo-cloud-text {
+        @apply font-semibold;
+    }
+
+    .landing-logo-cloud-links {
+        @apply flex flex-row flex-wrap items-center justify-center gap-4 mt-8;
+    }
+
+    /* SplitImageBlock Component */
+    .landing-split-image-outer {
+        @apply relative rounded-md bg-stone-900 dark:bg-stone-800;
+    }
+
+    .landing-split-image-media {
+        @apply lg:absolute lg:h-full lg:w-[calc(50%)] md:absolute md:h-full md:w-[calc(100%/3)] h-80 relative;
+    }
+
+    .landing-split-image-media img {
+        @apply h-full w-full object-cover m-0;
+    }
+
+    .landing-split-image-media picture {
+        @apply m-0 inline;
+    }
+
+    .landing-split-image-content-outer {
+        @apply relative py-24;
+    }
+
+    .landing-split-image-content-inner {
+        @apply lg:ml-auto lg:w-[calc(50%)] lg:p-8 lg:pl-24 md:ml-auto md:w-[calc(2*100%/3)] md:pl-16 md:p-8 px-6;
+    }
+
+    .landing-split-image-subtitle {
+        @apply my-0 font-semibold prose text-indigo-400 uppercase prose-invert;
+    }
+
+    .landing-split-image-heading {
+        @apply mt-2 mb-0 text-5xl font-semibold tracking-tight text-white;
+    }
+
+    .landing-split-image-body {
+        @apply mt-6 prose prose-invert;
+    }
+
+    .landing-split-image-links {
+        @apply flex flex-row flex-wrap items-center gap-4 mt-8 prose prose-invert;
+    }
+
+    /* UnknownBlock Component */
+    .landing-unknown-container {
+        @apply relative;
+    }
+
+    .landing-unknown-header {
+        @apply px-4 py-2 font-bold text-white bg-red-500 rounded-t;
+    }
+
+    .landing-unknown-block-name {
+        @apply font-mono;
+    }
+
+    .landing-unknown-content {
+        @apply px-4 py-3 border border-t-0 border-red-400 rounded-b;
+    }
 }

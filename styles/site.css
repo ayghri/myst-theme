@@ -1,0 +1,614 @@
+@layer base {
+
+    /* ==========================================================================
+   1. Abstract Component
+   ========================================================================== */
+
+    .myst-abstract-heading {
+        @apply mb-3 text-base font-semibold group;
+    }
+
+    .myst-abstract-content {
+        @apply px-6 py-1 mb-3 rounded-sm bg-slate-50 dark:bg-slate-800;
+    }
+
+    /* ==========================================================================
+     2. Backmatter Component
+     ========================================================================== */
+
+    .myst-backmatter {
+        @apply flex flex-col w-full md:flex-row group/backmatter;
+    }
+
+    .myst-backmatter-heading {
+        @apply mt-5 text-base font-semibold group md:w-[200px] self-start md:flex-none opacity-90 group-hover/backmatter:opacity-100;
+    }
+
+    .myst-backmatter-content {
+        @apply grow opacity-90 group-hover/backmatter:opacity-100 col-screen;
+    }
+
+    /* ==========================================================================
+     3. Bibliography Component
+     ========================================================================== */
+
+    .myst-bibliography-section {
+        @apply subgrid-gap col-screen;
+    }
+
+    .myst-bibliography-toggle {
+        @apply float-right p-1 px-2 text-xs border rounded hover:border-blue-500 dark:hover:border-blue-400;
+    }
+
+    .myst-bibliography-header {
+        @apply text-lg font-semibold text-stone-900 dark:text-white group;
+    }
+
+    .myst-bibliography-list {
+        @apply pl-3 mb-8 text-xs text-stone-500 dark:text-stone-300;
+    }
+
+    .myst-bibliography-item {
+        @apply break-words;
+    }
+
+    .myst-bibliography-show {
+        @apply text-center list-none;
+    }
+
+    .myst-bibliography-show-button {
+        @apply p-2 border rounded hover:border-blue-500 dark:hover:border-blue-400;
+    }
+
+    /* ==========================================================================
+     4. Footnotes Component
+     ========================================================================== */
+
+    .myst-footnotes-section {
+        @apply subgrid-gap col-screen;
+    }
+
+    .myst-footnotes-header {
+        @apply text-lg font-semibold text-stone-900 dark:text-white group;
+    }
+
+    .myst-footnotes-list {
+        @apply pl-3 mb-8 text-xs text-stone-500 dark:text-stone-300;
+    }
+
+    .myst-footnotes-item {
+        @apply group;
+    }
+
+    .myst-footnotes-item-row {
+        @apply flex flex-row;
+    }
+
+    .myst-footnotes-item-content {
+        @apply break-words grow;
+    }
+
+    .myst-footnotes-item-links {
+        @apply flex flex-col grow-0;
+    }
+
+    .myst-footnotes-back-link {
+        @apply p-1;
+    }
+
+    /* ==========================================================================
+     5. Article Header Component
+     ========================================================================== */
+
+    .myst-article-header {
+        @apply relative col-screen;
+    }
+
+    .myst-article-header-banner {
+        @apply absolute subgrid-gap col-screen bg-no-repeat bg-cover bg-top w-full h-full -z-10 pointer-events-none;
+    }
+
+    /* todo */
+    .myst-article-header-content {
+        @apply w-full relative col-screen subgrid-gap;
+    }
+
+    .myst-article-header-topbar {
+        @apply flex w-full align-middle py-2 mb-[1rem] text-sm;
+    }
+
+    .myst-article-header-subject {
+        @apply flex-none pr-2 smallcaps;
+    }
+
+    .myst-article-header-journal {
+        @apply hidden pl-2 border-l md:block;
+    }
+
+    .myst-article-header-spacer {
+        @apply flex-grow;
+    }
+
+    .myst-article-header-badges {
+        @apply hidden sm:block;
+    }
+
+    .myst-article-header-bottom {
+        @apply flex flex-col mb-10 md:flex-row;
+    }
+
+    /* ==========================================================================
+     6. Footer Links Block Component
+     ========================================================================== */
+
+    .myst-footer-link {
+        @apply flex-1 block p-4 font-normal text-gray-600 no-underline border border-gray-200 rounded shadow-sm group hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 dark:text-gray-100 dark:border-gray-500 hover:shadow-lg dark:shadow-neutral-700;
+    }
+
+    .myst-footer-link-content {
+        @apply flex h-full align-middle;
+    }
+
+    .myst-footer-link-arrow-left {
+        @apply self-center transition-transform group-hover:-translate-x-1 shrink-0;
+    }
+
+    .myst-footer-link-arrow-right {
+        @apply self-center transition-transform group-hover:translate-x-1 shrink-0;
+    }
+
+    .myst-footer-link-text {
+        @apply flex-grow;
+    }
+
+    .myst-footer-link-text-right {
+        @apply flex-grow text-right;
+    }
+
+    .myst-footer-link-group {
+        @apply text-xs text-gray-500 dark:text-gray-400;
+    }
+
+    .myst-footer-links {
+        @apply flex pt-10 mb-10 space-x-4;
+    }
+
+    /* ==========================================================================
+     7. Keywords Component
+     ========================================================================== */
+
+    .myst-keywords {
+        @apply mb-10 group;
+    }
+
+    .myst-keywords-label {
+        @apply mr-2 font-semibold;
+    }
+
+    .myst-keywords-item {
+        /* Conditional styles with after:content applied in component */
+    }
+
+    /* ==========================================================================
+     8. Document Outline Component - Headings
+     ========================================================================== */
+
+    .myst-outline-list {
+        @apply text-sm leading-6 text-slate-400;
+    }
+
+    .myst-outline-item {
+        @apply border-l-2 hover:border-l-blue-500;
+    }
+
+    .myst-outline-item-active {
+        @apply text-blue-600 border-l-blue-500 bg-blue-50 dark:bg-slate-800;
+    }
+
+    .myst-outline-item-inactive {
+        @apply border-l-gray-300 dark:border-l-gray-50;
+    }
+
+    .myst-outline-link {
+        @apply block p-1;
+    }
+
+    .myst-outline-link-active {
+        @apply text-blue-600 dark:text-white font-bold;
+    }
+
+    .myst-outline-link-inactive {
+        @apply pr-2;
+    }
+
+    .myst-outline-link-level-1 {
+        @apply text-slate-900 dark:text-slate-50 pl-2;
+    }
+
+    .myst-outline-link-level-2 {
+        @apply text-slate-500 dark:text-slate-300 pl-4;
+    }
+
+    .myst-outline-link-level-3 {
+        @apply pl-8 text-xs;
+    }
+
+    .myst-outline-link-level-4 {
+        @apply pl-10 text-xs font-light;
+    }
+
+    .myst-outline-link-level-5 {
+        @apply pl-12 text-xs font-extralight;
+    }
+
+    /* ==========================================================================
+     9. Document Outline Component - Table of Contents
+     ========================================================================== */
+
+    .myst-outline-collapsible-header {
+        @apply flex flex-row gap-2 mb-4 text-sm leading-6 uppercase rounded-lg text-slate-900 dark:text-slate-100;
+    }
+
+    .myst-outline-toggle {
+        @apply self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2;
+    }
+
+    .myst-outline-chevron {
+        @apply transition-transform duration-300 group-data-[state=open]:rotate-90 text-text-slate-700 dark:text-slate-100;
+    }
+
+    .myst-outline-section-title {
+        @apply my-4 text-sm leading-6 uppercase text-slate-900 dark:text-slate-100;
+    }
+
+    .myst-outline-nav-list {
+        @apply flex flex-col gap-2 pl-0 text-sm leading-6 list-none text-slate-700 dark:text-slate-300;
+    }
+
+    /* ==========================================================================
+     10. Top Navigation Component
+     ========================================================================== */
+
+    .myst-topnav-item {
+        @apply relative inline-block mx-2 grow-0;
+    }
+
+    .myst-topnav-link {
+        /* Dynamic via NavLink component with active state */
+    }
+
+    .myst-topnav-menu-button {
+        @apply inline-flex items-center justify-center w-full py-1 mx-2 font-medium rounded-md text-md text-stone-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75;
+    }
+
+    .myst-topnav-chevron {
+        @apply ml-2 -mr-1 text-violet-200 hover:text-violet-100;
+    }
+
+    .myst-topnav-menu-items {
+        @apply absolute w-48 py-1 mt-2 origin-top-left bg-white rounded-sm shadow-lg left-4 ring-1 ring-black ring-opacity-5 focus:outline-none;
+    }
+
+    .myst-topnav-menu-item,
+    .myst-topnav-menu-item-active {
+        @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black;
+    }
+
+    .myst-topnav-menu-item-active {
+        @apply text-black font-bold;
+    }
+
+    .myst-topnav-container {
+        @apply flex-grow hidden text-md lg:block;
+    }
+
+    .myst-topnav-bar {
+        @apply bg-white/80 backdrop-blur dark:bg-stone-900/80 shadow dark:shadow-stone-700 p-3 md:px-8 sticky w-screen top-0 z-30 h-[60px];
+    }
+
+    .myst-topnav-inner {
+        @apply flex items-center justify-between flex-nowrap max-w-[1440px] mx-auto;
+    }
+
+    .myst-topnav-logo-container {
+        @apply flex flex-row xl:min-w-[19.5rem] mr-2 sm:mr-7 justify-start items-center shrink-0;
+    }
+
+    .myst-topnav-mobile-menu {
+        @apply block;
+    }
+
+    .myst-topnav-mobile-menu.button {
+        @apply flex items-center border-stone-400 text-stone-800 hover:text-stone-900 dark:text-stone-200 hover:dark:text-stone-100;
+    }
+
+    .myst-topnav-right {
+        @apply flex items-center flex-grow w-auto;
+    }
+
+    .myst-topnav-action {
+        @apply inline-block px-4 py-2 mx-1 mt-0 leading-none border rounded text-md border-stone-700 dark:border-white text-stone-700 dark:text-white hover:text-stone-500 dark:hover:text-neutral-800 hover:bg-neutral-100;
+    }
+
+    /* ==========================================================================
+     11. Primary Sidebar Component
+     ========================================================================== */
+
+    .myst-sidebar-section-link {
+        /* todo */
+        /* className={classNames(
+          'p-2 my-1 rounded-lg',
+          'hover:bg-slate-300/30',
+          'block break-words focus:outline outline-blue-200 outline-2 rounded',
+        )} */
+
+        /* Complex with active/inactive states - preserve conditionals */
+    }
+
+    .myst-sidebar-collapsible {
+        @apply w-full;
+    }
+
+    .myst-sidebar-trigger {
+        @apply flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none hover:bg-slate-300/30;
+    }
+
+    .myst-sidebar-collapse-link {
+        @apply py-2 grow;
+    }
+
+    .myst-sidebar-toggle {
+        @apply self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2;
+    }
+
+    .myst-sidebar-chevron {
+        @apply transition-transform duration-300 group-data-[state=open]:rotate-90 text-text-slate-700 dark:text-slate-100;
+    }
+
+    .myst-sidebar-content {
+        @apply pl-3 pr-[2px] collapsible-content;
+    }
+
+    .myst-sidebar-content-link {
+        @apply p-2 my-1 rounded-lg hover:bg-slate-300/30 block break-words focus:outline outline-blue-200 outline-2 rounded;
+
+    }
+
+    .myst-sidebar-section-title {
+        @apply w-full px-1 dark:text-white font-medium;
+    }
+
+    .myst-sidebar-container {
+        /* todo */
+        @apply fixed;
+    }
+
+    .myst-sidebar-inner {
+        /* Flex with responsive classes - preserve as needed */
+        /* todo */
+        @apply pointer-events-auto xl:col-margin-left flex-col overflow-hidden;
+
+    }
+
+    .myst-sidebar-scroll {
+        @apply flex-grow py-6 overflow-y-auto primary-scrollbar;
+    }
+
+    .myst-sidebar-toc-mobile {
+        @apply overflow-y-hidden transition-opacity ml-3 xl:ml-0 mr-3 max-w-[350px] lg:hidden;
+    }
+
+    .myst-sidebar-divider {
+        @apply my-3 border-b-2 lg:hidden;
+    }
+
+    .myst-sidebar-toc-desktop {
+        @apply flex-grow overflow-y-hidden transition-opacity ml-3 xl:ml-0 mr-3 max-w-[350px];
+    }
+
+    .myst-sidebar-toc-footer {
+        @apply flex-none py-6 transition-all duration-700 translate-y-6 opacity-0;
+    }
+
+    /* ==========================================================================
+     12. Search Component
+     ========================================================================== */
+
+    .myst-search-mark {
+        @apply text-blue-600 bg-inherit dark:text-blue-400 group-aria-selected:text-white group-aria-selected:underline;
+    }
+
+    .myst-search-shortcuts {
+        @apply items-center hidden mx-1 font-mono text-sm text-gray-400 sm:flex gap-x-1;
+    }
+
+    .myst-search-kbd {
+        @apply px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md shadow-[0px_2px_0px_0px_rgba(0, 0, 0, 0.08)] dark:shadow-none;
+    }
+
+    .myst-search-result {
+        @apply block px-1 py-2 text-gray-700 rounded shadow-md dark:text-white group-aria-selected:bg-blue-600 group-aria-selected:text-white dark:shadow-none dark:bg-stone-800;
+    }
+
+    .myst-search-result-row {
+        @apply flex flex-row h-11;
+    }
+
+    .myst-search-result-content {
+        @apply flex flex-col justify-center truncate grow;
+    }
+
+    .myst-search-results {
+        @apply mt-4 overflow-y-scroll;
+    }
+
+    .myst-search-results-list {
+        @apply flex flex-col gap-y-2 px-1;
+    }
+
+    .myst-search-input-container {
+        @apply relative flex w-full h-10 flow-row gap-x-1;
+    }
+
+    .myst-search-icon {
+        @apply absolute text-gray-400 inset-y-0 start-0 h-10 w-10 p-2.5 aspect-square flex items-center pointer-events-none;
+    }
+
+    .myst-search-input {
+        /* Complex with focus states - preserve conditionals */
+    }
+
+    .myst-search-status {
+        @apply mx-2 mt-4 text-sm text-gray-500;
+    }
+
+    .myst-search-button {
+        @apply flex items-center h-10 aspect-square sm:w-64 text-left text-gray-400;
+        @apply border border-gray-300 dark:border-gray-600;
+        @apply rounded-lg bg-gray-50 dark:bg-gray-700;
+    }
+
+    .myst-search-button-enabled {
+        @apply hover:ring-blue-500 dark:hover:ring-blue-500 hover:border-blue-500 dark:hover:border-blue-500;
+    }
+
+
+    .myst-search-overlay {
+        @apply fixed inset-0 bg-[#656c85cc] z-[1000];
+    }
+
+    .myst-search-dialog {
+        @apply fixed flex flex-col top-0 bg-white dark:bg-stone-900 z-[1001] h-screen w-screen sm:left-1/2 sm:-translate-x-1/2 sm:w-[90vw] sm:max-w-screen-sm sm:h-auto sm:max-h-[var(--content-max-height)] sm:top-[var(--content-top)] sm:rounded-md p-4 text-gray-900 dark:text-white;
+    }
+
+    /* ==========================================================================
+     13. Skip to Article Component
+     ========================================================================== */
+
+    .myst-skip-container {
+        @apply fixed top-1 left-1 h-[0px] w-[0px] focus-within:z-40 focus-within:h-auto focus-within:w-auto bg-white overflow-hidden focus-within:p-2 focus-within:ring-1;
+    }
+
+    .myst-skip-link {
+        @apply block px-2 py-1 text-black underline;
+    }
+
+    /* ==========================================================================
+     14. Spinner Component
+     ========================================================================== */
+
+    .myst-spinner {
+        @apply mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-green-600;
+    }
+
+    /* ==========================================================================
+     15. Theme Button Component
+     ========================================================================== */
+
+    .myst-theme-button {
+        @apply rounded-full aspect-square border border-stone-700 dark:border-white hover:bg-neutral-100 border-solid overflow-hidden text-stone-700 dark:text-white hover:text-stone-500 dark:hover:text-neutral-800;
+    }
+
+    .myst-theme-icon-moon {
+        @apply h-full w-full p-0.5 hidden dark:block;
+    }
+
+    .myst-theme-icon-sun {
+        @apply h-full w-full p-0.5 dark:hidden;
+    }
+
+    /* ==========================================================================
+     16. Home Link Component
+     ========================================================================== */
+
+    .myst-homelink {
+        @apply flex items-center ml-3 dark:text-white w-fit md:ml-5 xl:ml-7;
+    }
+
+    .myst-homelink-logo {
+        @apply p-1 mr-3;
+    }
+
+    .myst-homelink-logo-light {
+        @apply h-9;
+    }
+
+    .myst-homelink-logo-dark {
+        @apply hidden h-9 dark:block;
+    }
+
+    .myst-homelink-title {
+        @apply text-md sm:text-xl tracking-tight sm:mr-5;
+    }
+
+    /* ==========================================================================
+     17. Table of Contents Items Component
+     ========================================================================== */
+
+    .myst-toc-container {
+        @apply w-full px-1 dark:text-white;
+    }
+
+    .myst-toc-link {
+        @apply block break-words focus:outline outline-blue-200 outline-2 rounded;
+    }
+
+    .myst-toc-link-text {
+        @apply inline align-middle;
+
+    }
+
+    .myst-toc-external-icon {
+        @apply inline h-4 w-4 align-middle ml-[0.2rem];
+    }
+
+
+    .myst-toc-item {
+        @apply p-2 my-1 rounded-lg;
+    }
+
+    .myst-toc-trigger {
+        @apply flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none;
+    }
+
+    .myst-toc-toggle {
+        /* todo */
+        /* py-2 grow */
+        @apply self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2;
+    }
+
+    .myst-toc-chevron {
+        /* todo */
+        @apply transition-transform duration-300 group-data-[state=open]:rotate-90;
+    }
+
+    /* ==========================================================================
+     18. Action Menu Component
+     ========================================================================== */
+
+    .myst-action-menu {
+        @apply relative;
+    }
+
+    .myst-action-menu-button {
+        @apply flex text-sm bg-transparent rounded-full focus:outline-none;
+    }
+
+    .myst-action-menu-content {
+        @apply flex items-center text-stone-200 hover:text-white;
+    }
+
+    .myst-action-menu-items {
+        @apply absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+    }
+
+    .myst-action-menu-item-active,
+    .myst-action-menu-item-inactive {
+        @apply block px-4 py-2 text-sm text-gray-700;
+    }
+
+    .myst-action-menu-item-active {
+        @apply bg-gray-100;
+    }
+
+}

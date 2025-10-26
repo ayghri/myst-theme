@@ -11,26 +11,16 @@ function getAsideClass(kind?: string) {
   switch (kind) {
     case 'topic':
       return {
-        container: `myst-aside myst-aside-${kind} myst-aside-topic`,
-        title: 'myst-aside-title myst-aside-title-topic',
-        body: 'myst-aside-body',
+        container: 'myst-aside myst-aside-${kind}',
+        title: 'myst-aside-title-${kind}',
+        body: 'myst-aside-body-${kind}',
       };
     case 'margin':
-      return {
-        container: `myst-aside myst-aside-${kind} myst-aside-margin`,
-        title: 'myst-aside-title myst-aside-title-margin',
-        body: 'myst-aside-body',
-      };
     case 'sidebar':
-      return {
-        container: `myst-aside myst-aside-${kind} myst-aside-sidebar`,
-        title: 'myst-aside-title myst-aside-title-margin',
-        body: 'myst-aside-body',
-      };
     default:
       return {
-        container: `myst-aside myst-aside-${kind} myst-aside-margin`,
-        title: 'myst-aside-title myst-aside-title-margin',
+        container: 'myst-aside myst-aside-${kind}',
+        title: 'myst-aside-title',
         body: 'myst-aside-body',
       };
   }

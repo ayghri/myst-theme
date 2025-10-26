@@ -43,15 +43,15 @@ export function Backmatter({
 }) {
   if (!content) return null;
   return (
-    <div className={classNames('flex flex-col w-full md:flex-row group/backmatter', className)}>
+    <div className={classNames('myst-backmatter', className)}>
       <h2
         id={id}
-        className="mt-5 text-base font-semibold group md:w-[200px] self-start md:flex-none opacity-90 group-hover/backmatter:opacity-100"
+        className="myst-backmatter-heading"
       >
         {title}
         <HashLink id={id} title={`Link to ${title}`} hover className="ml-2" />
       </h2>
-      <div className="grow opacity-90 group-hover/backmatter:opacity-100 col-screen">
+      <div className="myst-backmatter-content">
         <MyST ast={getChildren(content)} />
       </div>
     </div>

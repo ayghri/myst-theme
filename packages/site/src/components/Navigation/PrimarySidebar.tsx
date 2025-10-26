@@ -21,11 +21,7 @@ export function SidebarNavItem({ item }: { item: SiteNavItem }) {
       <ExternalOrInternalLink
         nav
         to={item.url ?? ''}
-        className={classNames(
-          'p-2 my-1 rounded-lg',
-          'hover:bg-slate-300/30',
-          'block break-words focus:outline outline-blue-200 outline-2 rounded',
-        )}
+        className='myst-toc-item',
       >
         {item.title}
       </ExternalOrInternalLink>
@@ -33,35 +29,30 @@ export function SidebarNavItem({ item }: { item: SiteNavItem }) {
   }
   const [open, setOpen] = React.useState(false);
   return (
-    <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
-      <div
-        className={classNames(
-          'flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none',
-          'hover:bg-slate-300/30',
-        )}
-      >
+    <Collapsible.Root className="myst-sidebar-collapsible" open={open} onOpenChange={setOpen}>
+      <div className="myst-sidebar-trigger">
         <ExternalOrInternalLink
           nav
           to={item.url ?? ''}
-          className={classNames('py-2 grow', {})}
+          className="myst-sidebar-collapse-link"
           onClick={() => setOpen(!open)}
         >
           {item.title}
         </ExternalOrInternalLink>
         <Collapsible.Trigger asChild>
           <button
-            className="self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2"
+            className="myst-sidebar-toggle"
             aria-label="Open Folder"
           >
             <ChevronRightIcon
-              className="transition-transform duration-300 group-data-[state=open]:rotate-90 text-text-slate-700 dark:text-slate-100"
+              className="myst-sidebar-chevron"
               height="1.5rem"
               width="1.5rem"
             />
           </button>
         </Collapsible.Trigger>
       </div>
-      <Collapsible.Content className="pl-3 pr-[2px] collapsible-content">
+      <Collapsible.Content className="myst-sidebar-content">
         {item.children.map((action) => (
           <ExternalOrInternalLink
             nav

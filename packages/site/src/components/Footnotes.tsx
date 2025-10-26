@@ -20,29 +20,29 @@ export function Footnotes({
   return (
     <section
       id="footnotes"
-      className={classNames(grid, 'subgrid-gap col-screen', containerClassName)}
+      className={classNames(grid, 'myst-footnotes-section', containerClassName)}
     >
       <div className={innerClassName}>
-        <header className="text-lg font-semibold text-stone-900 dark:text-white group">
+        <header className="myst-footnotes-header">
           Footnotes
           <HashLink id="footnotes" title="Link to Footnotes" hover className="ml-2" />
         </header>
       </div>
       <div
         className={classNames(
-          'pl-3 mb-8 text-xs text-stone-500 dark:text-stone-300',
+          'myst-footnotes-list',
           innerClassName,
         )}
       >
         <ol>
           {defs.map((fn) => {
             return (
-              <li key={(fn as GenericNode).key} id={`fn-${fn.identifier}`} className="group">
-                <div className="flex flex-row">
-                  <div className="break-words grow">
+              <li key={(fn as GenericNode).key} id={`fn-${fn.identifier}`} className="myst-footnotes-item">
+                <div className="myst-footnotes-item-row">
+                  <div className="myst-footnotes-item-content">
                     <MyST ast={fn.children} />
                   </div>
-                  <div className="flex flex-col grow-0">
+                  <div className="myst-footnotes-item-links">
                     {refs
                       .filter((ref) => ref.identifier === fn.identifier)
                       .map((ref) => (
@@ -51,7 +51,7 @@ export function Footnotes({
                           id={`fnref-${(ref as GenericNode).key}`}
                           title="Link to Content"
                           hover="desktop"
-                          className="p-1"
+                          className="myst-footnotes-back-link"
                           children="↩"
                           scrollBehavior="instant"
                         />

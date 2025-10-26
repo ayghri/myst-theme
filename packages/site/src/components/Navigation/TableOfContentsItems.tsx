@@ -65,7 +65,7 @@ function childrenOpen(headings: NestedHeading[], pathname: string, baseurl?: str
 export const Toc = ({ headings }: { headings: Heading[] }) => {
   const nested = nestToc(headings);
   return (
-    <div className="w-full px-1 dark:text-white">
+    <div className="myst-toc-container">
       {nested.map((item) => (
         <NestedToc heading={item} key={item.id} />
       ))}
@@ -92,10 +92,7 @@ function LinkItem({
     return (
       <Link
         title={`${heading.enumerator ? `${heading.enumerator} ` : ''}${heading.title}`}
-        className={classNames(
-          'block break-words focus:outline outline-blue-200 outline-2 rounded',
-          className,
-        )}
+        className={classNames('myst-toc-link', className)}
         to={heading.url}
         onClick={() => {
           onClick?.();
@@ -103,10 +100,10 @@ function LinkItem({
         }}
         target={target}
       >
-        <span className="inline align-middle">
+        <span className="myst-toc-link-text">
           {`${heading.enumerator ? `${heading.enumerator} ` : ''}${heading.title}`}
         </span>
-        <ArrowTopRightOnSquareIcon className="inline h-4 w-4 align-middle ml-[0.2rem]" />
+        <ArrowTopRightOnSquareIcon className="myst-toc-external-icon" />
       </Link>
     );
   }
@@ -130,7 +127,7 @@ function LinkItem({
       prefetch="intent"
       title={`${heading.enumerator ? `${heading.enumerator} ` : ''}${heading.title}`}
       className={classNames(
-        'block break-words focus:outline outline-blue-200 outline-2 rounded',
+        'myst-toc-link',
         className,
       )}
       to={withBaseurl(heading.path, baseurl)}
@@ -159,7 +156,7 @@ const NestedToc = ({ heading }: { heading: NestedHeading }) => {
   if (!heading.children || heading.children.length === 0) {
     return (
       <LinkItem
-        className={classNames('p-2 my-1 rounded-lg', {
+        className={classNames('myst-toc-item', {
           'bg-blue-300/30': exact,
           'hover:bg-slate-300/30': !exact,
           'font-bold': heading.level === 'index',
@@ -171,13 +168,10 @@ const NestedToc = ({ heading }: { heading: NestedHeading }) => {
   return (
     <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
       <div
-        className={classNames(
-          'flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none',
-          {
-            'bg-blue-300/30': exact,
-            'hover:bg-slate-300/30': !exact,
-          },
-        )}
+        className={classNames('myst-toc-trigger', {
+          'bg-blue-300/30': exact,
+          'hover:bg-slate-300/30': !exact,
+        })}
       >
         <LinkItem
           className={classNames('py-2 grow', {

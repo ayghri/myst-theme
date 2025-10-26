@@ -15,11 +15,11 @@ export function Abstract({
   if (!content) return null;
   return (
     <div className={className}>
-      <h2 id={id} className="mb-3 text-base font-semibold group">
+      <h2 id={id} className="myst-abstract-heading">
         {title}
         <HashLink id={id} title={`Link to ${title}`} hover className="ml-2" />
       </h2>
-      <div className="px-6 py-1 mb-3 rounded-sm bg-slate-50 dark:bg-slate-800">
+      <div className="myst-abstract-content">
         <MyST ast={content} className="col-body" />
       </div>
     </div>

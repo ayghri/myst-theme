@@ -21,10 +21,10 @@ export function LandingBlock({ node, className, children }: LandingBlockProps) {
     <div
       key={`block-${key}`}
       id={key}
-      className={classNames('relative group/block py-6', externalClassNames, {
+      className={classNames('landing-block', externalClassNames, {
         // Hide the subgrid if either the dataClass or the className exists and includes `col-`
         [subGrid]: !(externalClassNames && externalClassNames.includes('col-')),
-        hidden: node.visibility === 'remove',
+        'landing-block-hidden': node.visibility === 'remove',
       })}
     >
       {children}
