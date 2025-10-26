@@ -85,37 +85,36 @@ export function CodeBlock(props: Props) {
   return (
     <div
       id={identifier}
-      className={classNames('relative myst-code group not-prose', className, {
-        'my-5 text-sm shadow hover:shadow-md dark:shadow-2xl dark:shadow-neutral-900': shadow,
-        'bg-stone-200/10': background,
-        'border border-l-4 border-gray-200 border-l-blue-400 dark:border-l-blue-400 dark:border-gray-800':
-          border,
+      className={classNames('myst-code', className, {
+        'myst-code-shadow': shadow,
+        'myst-code-background': background,
+        'myst-code-border': border,
       })}
     >
       {filename && (
-        <div className="flex flex-row pl-2 bg-white border-b dark:bg-slate-600 dark:border-slate-300">
+        <div className="myst-code-filename">
           <DocumentIcon
             width="16px"
             height="16px"
-            className="inline-block flex-none self-center text-gray-500 myst-code-filename-icon dark:text-gray-100"
+            className="myst-code-filename-icon"
           />
-          <div className="self-center p-2 text-sm leading-3 myst-code-filename-title prose text-slate-600 dark:text-white">
+          <div className="myst-code-filename-title">
             {filename}
           </div>
         </div>
       )}
       <SyntaxHighlighter
         {...highlighterProps}
-        className="block overflow-auto p-3 myst-code-body hljs"
+        className="myst-code-body"
       >
         {value}
       </SyntaxHighlighter>
       {showCopy && (
         <CopyIcon
           text={value}
-          className={classNames('absolute right-1 myst-code-copy-icon', {
-            'top-[32px]': filename,
-            'top-1': !filename,
+          className={classNames('myst-code-copy-icon', {
+            'myst-code-copy-icon-with-filename': filename,
+            'myst-code-copy-icon-no-filename': !filename,
           })}
         />
       )}
@@ -160,16 +159,11 @@ function isColor(maybeColorHash: string): string | undefined {
 const inlineCode: NodeRenderer = ({ node, className }) => {
   if (isColor(node.value)) {
     return (
-      <code
-        className={classNames(
-          'px-1 rounded bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-100',
-          className,
-        )}
-      >
+      <code className={classNames('myst-inline-code', className)}>
         {node.value}
         <span
           style={{ backgroundColor: node.value }}
-          className="inline-block w-[10px] h-[10px] rounded-full ml-1"
+          className="myst-inline-code-color-swatch"
         ></span>
       </code>
     );

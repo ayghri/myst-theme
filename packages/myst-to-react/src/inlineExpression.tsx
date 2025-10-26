@@ -21,7 +21,7 @@ export const InlineExpression: NodeRenderer = ({ node, className }) => {
   // TODO: something with Thebe in the future!
   return (
     <Tooltip title={<code>{node.value}</code>}>
-      <span className={classNames('border-b border-dotted cursor-help', className)}>
+      <span className={classNames('myst-inline-expression', className)}>
         <MyST ast={node.children} />
       </span>
     </Tooltip>

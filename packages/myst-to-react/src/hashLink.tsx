@@ -86,15 +86,14 @@ export function HashLink({
   return (
     <a
       className={classNames(
-        'no-underline text-inherit hover:text-inherit',
-        { 'inline-block w-0 px-0 translate-x-[10px]': noWidth === true },
+        'myst-hash-link',
+        { 'myst-hash-link-no-width': noWidth === true },
         className,
         {
           'select-none': !canSelectText,
-          'transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70': hover === true,
-          '[@media(hover:hover)]:transition-opacity [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:focus:opacity-100 [@media(hover:hover)]:group-hover:opacity-70':
-            hover === 'desktop',
-          'hover:underline': !hover,
+          'myst-hash-link-hover': hover === true,
+          'myst-hash-link-hover-desktop': hover === 'desktop',
+          'myst-hash-link-static': !hover,
         },
       )}
       onClick={scroll}

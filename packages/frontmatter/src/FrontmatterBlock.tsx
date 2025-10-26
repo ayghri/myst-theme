@@ -34,7 +34,7 @@ export function DoiText({ doi: possibleLink, className }: { doi?: string; classN
   const url = `https://doi.org/${doi}`;
   return (
     <a
-      className={classNames('no-underline text-inherit hover:text-inherit', className)}
+      className={classNames('myst-fm-doi-text', className)}
       target="_blank"
       rel="noopener noreferrer"
       href={url}
@@ -50,9 +50,9 @@ export function DoiBadge({ doi: possibleLink, className }: { doi?: string; class
   const doi = possibleLink.replace(/^(https?:\/\/)?(dx\.)?doi\.org\//, '');
   const url = `https://doi.org/${doi}`;
   return (
-    <div className={classNames('flex-none', className)} title="DOI (Digital Object Identifier)">
+    <div className={classNames('myst-fm-doi-badge', className)} title="DOI (Digital Object Identifier)">
       <a
-        className="font-light no-underline hover:font-light hover:underline text-inherit hover:text-inherit"
+        className="myst-fm-doi-badge-link"
         target="_blank"
         rel="noopener noreferrer"
         href={url}
@@ -88,7 +88,7 @@ export function DateString({
   // Then format as human-readable in the local timezone.
   const dateString = localDate.toLocaleDateString('en-US', format);
   return (
-    <time dateTime={date} className={classNames({ 'text-spacer': spacer })}>
+    <time dateTime={date} className={classNames({ 'myst-fm-date-string': spacer })}>
       {dateString}
     </time>
   );
@@ -103,12 +103,12 @@ export function TwitterLink({ twitter: possibleLink }: { twitter?: string }) {
       title={`X Account: ${twitter}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-inherit hover:text-inherit"
+      className="myst-fm-social-link"
     >
       <XIcon
         width="1.25rem"
         height="1.25rem"
-        className="inline-block mr-1 opacity-60 hover:opacity-100"
+        className="myst-fm-social-icon"
       />
     </a>
   );
@@ -123,12 +123,12 @@ export function GitHubLink({ github: possibleLink }: { github?: string }) {
       title={`GitHub Repository: ${github}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-inherit hover:text-inherit"
+      className="myst-fm-social-link"
     >
       <GithubIcon
         width="1.25rem"
         height="1.25rem"
-        className="inline-block mr-1 opacity-60 hover:opacity-100"
+        className="myst-fm-social-icon"
       />
     </a>
   );
@@ -142,12 +142,12 @@ export function OpenAccessBadge({ open_access }: { open_access?: boolean }) {
       target="_blank"
       rel="noopener noreferrer"
       title="Open Access"
-      className="text-inherit hover:text-inherit"
+      className="myst-fm-badge-link"
     >
       <OpenAccessIcon
         width="1.25rem"
         height="1.25rem"
-        className="mr-1 inline-block opacity-60 hover:opacity-100 hover:text-[#E18435]"
+        className="myst-fm-open-access-icon"
       />
     </a>
   );
@@ -161,12 +161,12 @@ export function EditLink({ editUrl }: { editUrl?: string }) {
       title="Edit This Page"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-inherit hover:text-inherit"
+      className="myst-fm-edit-link"
     >
       <PencilSquareIcon
         width="1.25rem"
         height="1.25rem"
-        className="inline-block mr-1 opacity-60 hover:opacity-100"
+        className="myst-fm-edit-icon"
       />
     </a>
   );
@@ -187,20 +187,20 @@ export function Journal({
   const { title, url } = typeof venue === 'string' ? { title: venue, url: null } : venue;
   if (!title) return null;
   return (
-    <div className={classNames('flex-none mr-2', className)}>
+    <div className={classNames('myst-fm-journal', className)}>
       {url ? (
         <ExternalOrInternalLink
-          className="font-semibold no-underline smallcaps"
+          className="myst-fm-journal-title"
           to={url}
           title={title}
         >
           {title}
         </ExternalOrInternalLink>
       ) : (
-        <span className="font-semibold smallcaps">{title}</span>
+        <span className="myst-fm-journal-title">{title}</span>
       )}
       {volume != null && (
-        <span className="pl-2 ml-2 border-l">
+        <span className="myst-fm-journal-volume">
           Volume {volume.title}
           {issue != null && <>, Issue {issue.title}</>}
         </span>
@@ -267,25 +267,25 @@ export function FrontmatterBlock({
       className={classNames(className)}
     >
       {showHeaderBlock && (
-        <div className="flex items-center h-6 mb-5 text-sm font-light">
+        <div className="myst-fm-header">
           {subject && (
             <div
-              className={classNames('flex-none pr-2 smallcaps', {
-                'border-r mr-2': venue,
+              className={classNames('myst-fm-subject', {
+                'myst-fm-subject-bordered': venue,
               })}
             >
               {subject}
             </div>
           )}
           <Journal venue={venue} volume={volume} issue={issue} />
-          <div className="flex-grow"></div>
+          <div className="myst-fm-spacer"></div>
           {!hideBadges && (
             <>
               <LicenseBadges license={license} />
               <OpenAccessBadge open_access={open_access} />
               <GitHubLink github={github} />
               {isJupyter && (
-                <div className="inline-block mr-1">
+                <div className="myst-fm-jupyter-icon-container">
                   <JupyterIcon
                     width="1.25rem"
                     height="1.25rem"
@@ -302,12 +302,12 @@ export function FrontmatterBlock({
         </div>
       )}
       {title && (
-        <h1 className="mb-0">
-          {enumerator && <span className="mr-3 select-none">{enumerator}</span>}
+        <h1 className="myst-fm-title">
+          {enumerator && <span className="myst-fm-enumerator">{enumerator}</span>}
           {title}
         </h1>
       )}
-      {subtitle && <p className="mt-2 mb-0 lead text-zinc-600 dark:text-zinc-400">{subtitle}</p>}
+      {subtitle && <p className="myst-fm-subtitle">{subtitle}</p>}
       {hasAuthors && authorStyle === 'list' && (
         <AuthorsList authors={frontmatter.authors} affiliations={frontmatter.affiliations} />
       )}
@@ -318,7 +318,7 @@ export function FrontmatterBlock({
         />
       )}
       {hasDateOrDoi && (
-        <div className="flex mt-2 text-sm font-light">
+        <div className="myst-fm-metadata">
           <DateString date={date} spacer={!!doi} />
           <DoiBadge doi={doi} />
         </div>

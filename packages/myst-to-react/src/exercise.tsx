@@ -71,7 +71,7 @@ const HeaderElement = ({
   return <div className={className}>{children}</div>;
 };
 
-const iconClass = 'inline-block pl-2 mr-2 self-center flex-none';
+const iconClass = 'myst-exercise-icon';
 
 export function Callout({
   title,
@@ -95,16 +95,15 @@ export function Callout({
       id={identifier}
       dropdown={dropdown}
       className={classNames(
-        'myst-exercise my-5 shadow dark:bg-stone-800 overflow-hidden',
-        'dark:border-l-4 border-slate-400',
+        'myst-exercise',
         {
-          'dark:border-gray-500/60': !color || color === 'gray',
-          'dark:border-blue-500/60': color === 'blue',
-          'dark:border-green-500/60': color === 'green',
-          'dark:border-amber-500/70': color === 'yellow',
-          'dark:border-orange-500/60': color === 'orange',
-          'dark:border-red-500/60': color === 'red',
-          'dark:border-purple-500/60': color === 'purple',
+          'myst-exercise-gray': !color || color === 'gray',
+          'myst-exercise-blue': color === 'blue',
+          'myst-exercise-green': color === 'green',
+          'myst-exercise-yellow': color === 'yellow',
+          'myst-exercise-orange': color === 'orange',
+          'myst-exercise-red': color === 'red',
+          'myst-exercise-purple': color === 'purple',
         },
         className,
       )}
@@ -112,19 +111,16 @@ export function Callout({
       <HeaderElement
         dropdown={dropdown}
         className={classNames(
-          'myst-exercise-header m-0 font-medium py-2 flex min-w-0',
-          'text-md',
-          'border-y dark:border-y-0',
+          'myst-exercise-header',
           {
-            'bg-gray-50/80 dark:bg-slate-900': !color || color === 'gray',
-            'bg-blue-50/80 dark:bg-slate-900': color === 'blue',
-            'bg-green-50/80 dark:bg-slate-900': color === 'green',
-            'bg-amber-50/80 dark:bg-slate-900': color === 'yellow',
-            'bg-orange-50/80 dark:bg-slate-900': color === 'orange',
-            'bg-red-50/80 dark:bg-slate-900': color === 'red',
-            'bg-purple-50/80 dark:bg-slate-900': color === 'purple',
-            'cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03]':
-              dropdown,
+            'myst-exercise-header-gray': !color || color === 'gray',
+            'myst-exercise-header-blue': color === 'blue',
+            'myst-exercise-header-green': color === 'green',
+            'myst-exercise-header-yellow': color === 'yellow',
+            'myst-exercise-header-orange': color === 'orange',
+            'myst-exercise-header-red': color === 'red',
+            'myst-exercise-header-purple': color === 'purple',
+            'myst-exercise-header-dropdown': dropdown,
           },
         )}
       >
@@ -133,39 +129,39 @@ export function Callout({
             width="2rem"
             height="2rem"
             className={classNames(
-              'myst-exercise-header-icon inline-block pl-2 mr-2 self-center flex-none',
-              classNames({
-                'text-gray-600': !color || color === 'gray',
-                'text-blue-600': color === 'blue',
-                'text-green-600': color === 'green',
-                'text-amber-600': color === 'yellow',
-                'text-orange-600': color === 'orange',
-                'text-red-600': color === 'red',
-                'text-purple-600': color === 'purple',
-              }),
+              iconClass,
+              {
+                'myst-exercise-icon-gray': !color || color === 'gray',
+                'myst-exercise-icon-blue': color === 'blue',
+                'myst-exercise-icon-green': color === 'green',
+                'myst-exercise-icon-yellow': color === 'yellow',
+                'myst-exercise-icon-orange': color === 'orange',
+                'myst-exercise-icon-red': color === 'red',
+                'myst-exercise-icon-purple': color === 'purple',
+              },
             )}
           />
         )}
         <div
           className={classNames(
-            'myst-exercise-title text-neutral-900 dark:text-white grow self-center overflow-hidden break-words',
-            { 'ml-4': !Icon }, // No icon!
-            'group', // For nested cross-reference links
+            'myst-exercise-title',
+            { 'myst-exercise-title-no-icon': !Icon },
+            'group',
           )}
         >
           {title}
         </div>
         {dropdown && (
-          <div className="self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200">
+          <div className="myst-exercise-chevron-container">
             <ChevronRightIcon
               width="1.5rem"
               height="1.5rem"
-              className={classNames(iconClass, 'transition-transform details-toggle')}
+              className="myst-exercise-chevron"
             />
           </div>
         )}
       </HeaderElement>
-      <div className={classNames('myst-exercise-body px-4', { 'details-body': dropdown })}>
+      <div className={classNames('myst-exercise-body', { 'details-body': dropdown })}>
         {children}
       </div>
     </WrapperElement>

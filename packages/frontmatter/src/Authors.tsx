@@ -17,11 +17,11 @@ function AuthorIconLink({
   className?: string;
 }) {
   return (
-    <a className="ml-1" href={href} title={title} target="_blank" rel="noopener noreferrer">
+    <a className="myst-fm-author-icon-link" href={href} title={title} target="_blank" rel="noopener noreferrer">
       <Icon
         width="1rem"
         height="1rem"
-        className={classNames('inline-block text-gray-400 -translate-y-[0.1em]', className)}
+        className={classNames('myst-fm-author-icon', className)}
       />
     </a>
   );
@@ -37,7 +37,7 @@ export function Author({
   className?: string;
 }) {
   return (
-    <span className={classNames('font-semibold text-sm', className)}>
+    <span className={classNames('myst-fm-author', className)}>
       <AuthorPopover author={author} affiliations={affiliations}>
         {author.name}
       </AuthorPopover>
@@ -46,7 +46,7 @@ export function Author({
           href={`mailto:${author.email}`}
           title={`${author.name} <${author.email}>`}
           icon={EmailIcon}
-          className="hover:text-blue-400"
+          className="myst-fm-author-icon-email"
         />
       )}
       {author.orcid && (
@@ -54,7 +54,7 @@ export function Author({
           href={`https://orcid.org/${author.orcid}`}
           title={`ORCID: ${author.orcid}`}
           icon={OrcidIcon}
-          className="hover:text-[#A9C751]"
+          className="myst-fm-author-icon-orcid"
         />
       )}
     </span>
@@ -76,8 +76,8 @@ export function AuthorsList({
           key={a.name}
           author={a}
           affiliations={affiliations}
-          className={classNames('inline-block', {
-            'text-comma': i < authors.length - 1,
+          className={classNames('myst-fm-author-inline', {
+            'myst-fm-author-comma': i < authors.length - 1,
           })}
         />
       ))}
@@ -99,18 +99,18 @@ export function AuthorAndAffiliations({
   );
   if (!hasAffliations) {
     return (
-      <header className="mt-4 not-prose">
+      <header className="myst-fm-authors-header">
         <AuthorsList authors={authors} affiliations={affiliations} />
       </header>
     );
   }
   return (
-    <header className="mt-4 not-prose">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1">
+    <header className="myst-fm-authors-header">
+      <div className="myst-fm-authors-grid">
         {authors.length > 1 && (
           <>
-            <div className="pb-2 text-xs font-thin uppercase">Authors</div>
-            <div className="pb-2 text-xs font-thin uppercase">Affiliations</div>
+            <div className="myst-fm-authors-label">Authors</div>
+            <div className="myst-fm-authors-label">Affiliations</div>
           </>
         )}
         {authors.map((author) => (
@@ -118,7 +118,7 @@ export function AuthorAndAffiliations({
             <div>
               <Author author={author} affiliations={affiliations} />
             </div>
-            <div className="text-sm">
+            <div className="myst-fm-affiliation-list">
               {author.affiliations?.map((affiliationId) => {
                 return (
                   <div key={affiliationId}>

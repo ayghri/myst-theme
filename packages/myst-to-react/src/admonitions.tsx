@@ -94,7 +94,7 @@ function getFirstKind({
   return { kind: AdmonitionKind.note, color: 'blue' };
 }
 
-const iconClass = 'myst-admonition-header-icon inline-block pl-2 mr-2 self-center flex-none';
+const iconClass = 'myst-admonition-icon';
 
 function AdmonitionIcon({ kind, className }: { kind: AdmonitionKind; className?: string }) {
   const cn = classNames(iconClass, className);
@@ -175,16 +175,15 @@ export function Admonition({
       dropdown={dropdown}
       open={open}
       className={classNames(
-        `myst-admonition myst-admonition-${kind} my-5 shadow-md dark:shadow-2xl dark:shadow-neutral-900`,
-        'bg-gray-50/10 dark:bg-stone-800',
-        'overflow-hidden',
+        'myst-admonition',
+        `myst-admonition-${kind}`,
         {
-          'myst-admonition-default rounded border-l-4': !simple,
-          'myst-admonition-simple border-l-2': simple,
-          'border-blue-500': !color || color === 'blue',
-          'border-green-600': color === 'green',
-          'border-amber-600': color === 'yellow',
-          'border-red-600': color === 'red',
+          'myst-admonition-default': !simple,
+          'myst-admonition-simple': simple,
+          'myst-admonition-blue': !color || color === 'blue',
+          'myst-admonition-green': color === 'green',
+          'myst-admonition-yellow': color === 'yellow',
+          'myst-admonition-red': color === 'red',
         },
         className,
       )}
@@ -192,52 +191,49 @@ export function Admonition({
       {title && (
         <HeaderElement
           dropdown={dropdown}
-          className={classNames('myst-admonition-header m-0 font-medium py-1 flex min-w-0', {
-            'text-lg': !simple,
-            'text-md': simple,
-            'bg-gray-100 dark:bg-stone-700': simple,
-            'text-blue-600 bg-blue-50 dark:bg-slate-900': !simple && (!color || color === 'blue'),
-            'text-green-600 bg-green-50 dark:bg-slate-900': !simple && color === 'green',
-            'text-amber-600 bg-amber-50 dark:bg-slate-900': !simple && color === 'yellow',
-            'text-red-600 bg-red-50 dark:bg-slate-900': !simple && color === 'red',
-            'cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03]':
-              dropdown,
+          className={classNames('myst-admonition-header', {
+            'myst-admonition-header-default': !simple,
+            'myst-admonition-header-simple': simple,
+            'myst-admonition-header-blue': !simple && (!color || color === 'blue'),
+            'myst-admonition-header-green': !simple && color === 'green',
+            'myst-admonition-header-yellow': !simple && color === 'yellow',
+            'myst-admonition-header-red': !simple && color === 'red',
+            'myst-admonition-header-dropdown': dropdown,
           })}
         >
           {!hideIcon && (
             <AdmonitionIcon
               kind={kind ?? AdmonitionKind.note}
               className={classNames({
-                // Needed for simple!
-                'text-blue-600': !color || color === 'blue',
-                'text-green-600': color === 'green',
-                'text-amber-600': color === 'yellow',
-                'text-red-600': color === 'red',
+                'myst-admonition-icon-blue': !color || color === 'blue',
+                'myst-admonition-icon-green': color === 'green',
+                'myst-admonition-icon-yellow': color === 'yellow',
+                'myst-admonition-icon-red': color === 'red',
               })}
             />
           )}
           <div
             className={classNames(
-              'myst-admonition-header-text text-neutral-900 dark:text-white grow self-center overflow-hidden break-words',
-              { 'ml-4': hideIcon },
+              'myst-admonition-header-text',
+              { 'myst-admonition-header-text-no-icon': hideIcon },
             )}
           >
             {title}
           </div>
           {dropdown && (
-            <div className="self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200">
+            <div className="myst-admonition-chevron-container">
               <ChevronRightIcon
                 width="2rem"
                 height="2rem"
-                className={classNames(iconClass, 'transition-transform details-toggle')}
+                className="myst-admonition-chevron"
               />
             </div>
           )}
         </HeaderElement>
       )}
       <div
-        className={classNames('myst-admonition-body px-4', {
-          'py-1': !simple,
+        className={classNames('myst-admonition-body', {
+          'myst-admonition-body-default': !simple,
           'details-body': dropdown,
         })}
       >

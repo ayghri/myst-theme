@@ -24,7 +24,7 @@ export const Header: NodeRenderer<HeaderSpec> = ({ node, className }) => {
   return (
     <header
       className={classNames(
-        'myst-card-header py-1 pl-3 m-0 border-b border-gray-100 bg-gray-50 dark:bg-slate-900 dark:border-gray-800',
+        'myst-card-header',
         className,
       )}
     >
@@ -37,7 +37,7 @@ export const Footer: NodeRenderer<FooterSpec> = ({ node, className }) => {
   return (
     <footer
       className={classNames(
-        'myst-card-footer py-1 pl-3 m-0 border-t border-gray-100 bg-gray-50 dark:bg-slate-900 dark:border-gray-800',
+        'myst-card-footer',
         className,
       )}
     >
@@ -48,7 +48,7 @@ export const Footer: NodeRenderer<FooterSpec> = ({ node, className }) => {
 
 export const CardTitle: NodeRenderer<CardTitleSpec> = ({ node, className }) => {
   return (
-    <div className={classNames('myst-card-title pt-3 font-bold group-hover:underline', className)}>
+    <div className={classNames('myst-card-title', className)}>
       <MyST ast={node.children} />
     </div>
   );
@@ -108,8 +108,7 @@ export const CardRenderer: NodeRenderer<CardSpec> = ({ node, className }) => {
   const url = node.url;
   const isStatic = node.static || false;
   const link = !!url;
-  const sharedStyle =
-    'myst-card my-5 rounded shadow dark:shadow-neutral-800 overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col';
+  const sharedStyle = 'myst-card';
   if (link) {
     return (
       <ExternalOrInternalLink
@@ -117,14 +116,12 @@ export const CardRenderer: NodeRenderer<CardSpec> = ({ node, className }) => {
         isStatic={isStatic}
         className={classNames(
           sharedStyle,
-          'text-inherit hover:text-inherit',
-          'block font-normal no-underline hover:no-underline cursor-pointer group',
-          'hover:border-blue-500 dark:hover:border-blue-400',
+          'myst-card-link',
           className,
         )}
       >
         <MyST ast={parts.header} />
-        <div className="myst-card-body flex-grow px-4 py-2">
+        <div className="myst-card-body">
           <MyST ast={parts.body} />
         </div>
         <MyST ast={parts.footer} />
@@ -134,7 +131,7 @@ export const CardRenderer: NodeRenderer<CardSpec> = ({ node, className }) => {
   return (
     <div className={classNames(sharedStyle, className)}>
       <MyST ast={parts.header} />
-      <div className="myst-card-body flex-grow px-4 py-2">
+      <div className="myst-card-body">
         <MyST ast={parts.body} />
       </div>
       <MyST ast={parts.footer} />

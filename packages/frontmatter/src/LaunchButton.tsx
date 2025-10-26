@@ -73,10 +73,10 @@ function CopyButton(props: CopyButtonProps) {
   return (
     <button
       type="button"
-      className={classNames(className, 'flex flex-row items-center gap-1')}
+      className={classNames(className, 'myst-fm-copy-button')}
       onClick={copyLink}
     >
-      {message} <ClipboardCopyIcon className="inline-block" />
+      {message} <ClipboardCopyIcon className="myst-fm-copy-icon" />
     </button>
   );
 }
@@ -421,41 +421,41 @@ function DetectLaunchContent(props: ModalLaunchProps) {
 
   return (
     <Form.Root onSubmit={handleSubmit} ref={formRef}>
-      <Form.Field className="mb-2.5 grid" name="url">
-        <div className="flex flex-col items-baseline justify-between">
-          <Form.Label className="text-[15px] font-medium leading-[35px]">
+      <Form.Field className="myst-fm-launch-field" name="url">
+        <div className="myst-fm-launch-field-header">
+          <Form.Label className="myst-fm-launch-label">
             Enter a JupyterHub or BinderHub URL, e.g.{' '}
             <a
               href="https://mybinder.org"
-              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              className="myst-fm-launch-label-link"
             >
               https://mybinder.org
             </a>
           </Form.Label>
-          <Form.Message className="text-[13px] opacity-80" match="typeMismatch">
+          <Form.Message className="myst-fm-launch-message" match="typeMismatch">
             Please provide a valid URL that starts with http(s).
           </Form.Message>
         </div>
-        <div className="relative flex">
-          <span className="flex absolute h-full" aria-hidden>
+        <div className="myst-fm-launch-input-container">
+          <span className="myst-fm-launch-icon-container" aria-hidden>
             {(detectedProviderType === 'binderhub' && (
-              <BinderIcon className="w-[24px] h-[24px] mx-[4px] self-center pointer-events-none" />
+              <BinderIcon className="myst-fm-launch-icon" />
             )) ||
               (detectedProviderType === 'jupyterhub' && (
-                <JupyterIcon className="w-[24px] h-[24px] mx-[4px] self-center pointer-events-none" />
+                <JupyterIcon className="myst-fm-launch-icon" />
               )) ||
               (detectedProviderType === 'error' && (
-                <QuestionMarkCircledIcon className="w-[24px] h-[24px] mx-[4px] self-center pointer-events-none" />
+                <QuestionMarkCircledIcon className="myst-fm-launch-icon" />
               )) ||
               (isInterrogating && (
-                <UpdateIcon className="w-[24px] h-[24px] mx-[4px] self-center pointer-events-none motion-safe:animate-spin" />
+                <UpdateIcon className="myst-fm-launch-icon myst-fm-launch-icon-spinner" />
               )) || (
-                <Link2Icon className="w-[24px] h-[24px] mx-[4px] self-center pointer-events-none" />
+                <Link2Icon className="myst-fm-launch-icon" />
               )}
           </span>
           <Form.Control asChild>
             <input
-              className="ps-[32px] box-border inline-flex h-[35px] w-full appearance-none items-center justify-center rounded px-2.5 text-[15px] leading-none shadow-[0_0_0_1px] shadow-slate-400 outline-none bg-gray-50 dark:bg-gray-700 hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black]"
+              className="myst-fm-launch-input"
               type="url"
               placeholder={defaultBinderBaseURL}
               required
@@ -468,31 +468,26 @@ function DetectLaunchContent(props: ModalLaunchProps) {
 
       <details
         className={classNames(
-          'rounded-md my-5 shadow dark:shadow-2xl dark:shadow-neutral-900 overflow-hidden',
-          'bg-gray-50 dark:bg-stone-800',
-          { hidden: !(detectedProviderType === 'jupyterhub' || detectedProviderType === 'error') },
+          'myst-fm-launch-details',
+          { 'myst-fm-launch-details-hidden': !(detectedProviderType === 'jupyterhub' || detectedProviderType === 'error') },
         )}
         open={false}
       >
         <summary
-          className={classNames(
-            'm-0 text-lg font-medium py-1 min-h-[2em] pl-3',
-            'cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03]',
-            'bg-gray-100 dark:bg-slate-900',
-          )}
+          className="myst-fm-launch-summary"
         >
-          <span className="text-neutral-900 dark:text-white">
-            <span className="block float-right text-sm font-thin text-neutral-700 dark:text-neutral-200">
+          <span className="myst-fm-launch-summary-text">
+            <span className="myst-fm-launch-summary-indicator">
               <ChevronRightIcon
                 width="1.5rem"
                 height="1.5rem"
-                className={classNames('details-toggle', 'transition-transform')}
+                className="myst-fm-launch-chevron"
               />
             </span>
             JupyterHub Requirements
           </span>
         </summary>
-        <div className="px-4 py-1 details-body flex flex-col gap-1">
+        <div className="myst-fm-launch-details-body">
           <p>
             Launching on a JupyterHub will usually require you to choose a "profile". You should
             select a profile that has the right packages, and enough resources to run the code-cells
@@ -516,9 +511,9 @@ function DetectLaunchContent(props: ModalLaunchProps) {
 
       <fieldset
         disabled={detectedProviderType !== 'error'}
-        className={classNames('mt-6', { hidden: detectedProviderType !== 'error' })}
+        className={classNames('myst-fm-launch-fieldset', { 'myst-fm-launch-fieldset-hidden': detectedProviderType !== 'error' })}
       >
-        <legend className="mb-3">
+        <legend className="myst-fm-launch-legend">
           The provider type could not be detected automatically. what kind of provider have you
           given?
         </legend>
@@ -544,19 +539,19 @@ function DetectLaunchContent(props: ModalLaunchProps) {
       </fieldset>
 
       <fieldset
-        className={classNames('flex flex-row justify-between mt-6', {
-          hidden: detectedProviderType === undefined,
+        className={classNames('myst-fm-launch-buttons', {
+          'myst-fm-launch-buttons-hidden': detectedProviderType === undefined,
         })}
         disabled={detectedProviderType === undefined}
       >
         <Form.Submit asChild>
-          <button className="inline-flex flex-row gap-1 h-[35px] items-center justify-center rounded px-[15px] font-medium leading-none bg-orange-500 hover:bg-orange-600 outline-none text-white focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+          <button className="myst-fm-launch-submit">
             <span>Launch</span> <ExternalLinkIcon className="inline-block" />
           </button>
         </Form.Submit>
 
         <CopyButton
-          className="inline-flex h-[35px] items-center justify-center rounded px-[15px] font-medium leading-none bg-gray-400 hover:bg-gray-500 outline-none text-white focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none"
+          className="myst-fm-launch-copy"
           defaultMessage="Copy Link"
           copiedMessage="Link Copied"
           buildLink={buildValidLink}
@@ -575,7 +570,7 @@ export function LaunchButton(props: LaunchProps) {
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className="inline-flex size-[24px] hover:text-[#E18435] items-center justify-center"
+          className="myst-fm-launch-trigger"
           aria-label="Launch in external computing interface"
           title="Launch in external computing interface"
         >
@@ -584,18 +579,18 @@ export function LaunchButton(props: LaunchProps) {
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          className="z-30 text-gray-700 dark:text-white bg-white dark:bg-stone-800 p-5 rounded shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] max-w-[400px]"
+          className="myst-fm-launch-popover"
           sideOffset={5}
         >
           <DetectLaunchContent {...props} onLaunch={closePopover} />
           <Popover.Close
-            className="absolute right-[5px] top-[5px] inline-flex size-[25px] items-center justify-center rounded-full"
+            className="myst-fm-launch-close"
             aria-label="Close"
             ref={closeRef}
           >
             <Cross2Icon />
           </Popover.Close>
-          <Popover.Arrow className="fill-white" />
+          <Popover.Arrow className="myst-fm-launch-arrow" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

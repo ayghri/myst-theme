@@ -9,19 +9,19 @@ const Heading: NodeRenderer = ({ node, className }) => {
   const id = html_id || identifier || key;
   const textContent = (
     <>
-      {enumerator && <span className="mr-3 select-none">{enumerator}</span>}
-      <span className="heading-text">
+      {enumerator && <span className="myst-heading-enumerator">{enumerator}</span>}
+      <span className="myst-heading-text">
         <MyST ast={node.children} />
       </span>
       <HashLink id={id} kind="Section" className="font-normal" hover hideInPopup noWidth />
     </>
   );
-  // The `heading-text` class is picked up in the Outline to select without the enumerator and "#" link
+  // The `myst-heading-text` class is picked up in the Outline to select without the enumerator and "#" link
   return e(
     `h${depth}`,
     {
       id,
-      className: classNames('relative group', className),
+      className: classNames('myst-heading', className),
     },
     textContent,
   );

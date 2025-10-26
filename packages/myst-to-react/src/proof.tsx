@@ -108,7 +108,7 @@ const HeaderElement = ({
   return <div className={className}>{children}</div>;
 };
 
-const iconClass = 'inline-block pl-2 mr-2 self-center flex-none';
+const iconClass = 'myst-proof-chevron';
 
 export function Proof({
   title,
@@ -134,52 +134,40 @@ export function Proof({
       id={identifier}
       dropdown={dropdown}
       className={classNames(
-        'myst-proof my-5 shadow dark:bg-stone-800 overflow-hidden',
-        'dark:border-l-4 border-slate-400',
+        'myst-proof',
         {
-          'dark:border-gray-500/60': !color || color === 'gray',
-          'dark:border-blue-500/60': color === 'blue',
-          'dark:border-green-500/60': color === 'green',
-          'dark:border-amber-500/70': color === 'yellow',
-          'dark:border-orange-500/60': color === 'orange',
-          'dark:border-red-500/60': color === 'red',
-          'dark:border-purple-500/60': color === 'purple',
+          'myst-proof-gray': !color || color === 'gray',
+          'myst-proof-blue': color === 'blue',
+          'myst-proof-green': color === 'green',
+          'myst-proof-yellow': color === 'yellow',
+          'myst-proof-orange': color === 'orange',
+          'myst-proof-red': color === 'red',
+          'myst-proof-purple': color === 'purple',
         },
         className,
       )}
     >
       <HeaderElement
         dropdown={dropdown}
-        className={classNames(
-          'myst-proof-header m-0 font-medium py-2 flex min-w-0',
-          'text-md',
-          'border-y dark:border-y-0',
-          {
-            'bg-gray-50/80 dark:bg-slate-900': !color || color === 'gray',
-            'bg-blue-50/80 dark:bg-slate-900': color === 'blue',
-            'bg-green-50/80 dark:bg-slate-900': color === 'green',
-            'bg-amber-50/80 dark:bg-slate-900': color === 'yellow',
-            'bg-orange-50/80 dark:bg-slate-900': color === 'orange',
-            'bg-red-50/80 dark:bg-slate-900': color === 'red',
-            'bg-purple-50/80 dark:bg-slate-900': color === 'purple',
-            'cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03]':
-              dropdown,
-          },
-        )}
+        className={classNames('myst-proof-header', {
+          'myst-proof-header-gray': !color || color === 'gray',
+          'myst-proof-header-blue': color === 'blue',
+          'myst-proof-header-green': color === 'green',
+          'myst-proof-header-yellow': color === 'yellow',
+          'myst-proof-header-orange': color === 'orange',
+          'myst-proof-header-red': color === 'red',
+          'myst-proof-header-purple': color === 'purple',
+          'myst-proof-header-dropdown': dropdown,
+        })}
       >
-        <div
-          className={classNames(
-            'myst-proof-title text-neutral-900 dark:text-white grow self-center overflow-hidden break-words',
-            'ml-4', // No icon!
-          )}
-        >
+        <div className="myst-proof-title">
           <HashLink id={identifier} kind={capitalize(kind)}>
             {capitalize(kind)} {enumerator}
           </HashLink>{' '}
           {title && <>({title})</>}
         </div>
         {dropdown && (
-          <div className="self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200">
+          <div className="myst-proof-chevron-container">
             <ChevronRightIcon
               width="1.5rem"
               height="1.5rem"
@@ -188,7 +176,7 @@ export function Proof({
           </div>
         )}
       </HeaderElement>
-      <div className={classNames('myst-proof-body px-4', { 'details-body': dropdown })}>
+      <div className={classNames('myst-proof-body', { 'details-body': dropdown })}>
         {children}
       </div>
     </WrapperElement>

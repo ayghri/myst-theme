@@ -24,18 +24,18 @@ export function LinkCard({
   const to = withBaseurl(url, baseurl);
   return (
     <div
-      className={classNames('hover-card-content rounded overflow-hidden', className, {
-        'animate-pulse': loading,
+      className={classNames('myst-link-card', className, {
+        'myst-link-card-loading': loading,
       })}
     >
       {!loading && thumbnail && (
-        <img src={thumbnail} className="w-full h-[150px] object-cover object-top object-left m-0" />
+        <img src={thumbnail} className="myst-link-card-image" />
       )}
-      {loading && <div className="animate-pulse bg-slate-100 dark:bg-slate-800 w-full h-[150px]" />}
+      {loading && <div className="myst-link-card-placeholder" />}
       {internal && (
         <Link
           to={to}
-          className="block px-3 mt-3 text-sm font-semibold text-inherit hover:text-inherit"
+          className="myst-link-card-link"
           prefetch="intent"
         >
           {title}
@@ -44,16 +44,16 @@ export function LinkCard({
       {!internal && (
         <a
           href={to}
-          className="block px-3 mt-3 text-sm font-semibold text-inherit hover:text-inherit"
+          className="myst-link-card-link"
           target="_blank"
           rel="noreferrer"
         >
-          <ExternalLinkIcon width="1rem" height="1rem" className="float-right" />
+          <ExternalLinkIcon width="1rem" height="1rem" className="myst-link-card-icon" />
           {title}
         </a>
       )}
       {!loading && description && (
-        <div className="p-3 prose text-sm max-h-[300px] overflow-hidden">{description}</div>
+        <div className="myst-link-card-description">{description}</div>
       )}
     </div>
   );

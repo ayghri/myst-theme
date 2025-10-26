@@ -195,7 +195,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
       paddingLeft: `${(node.indent ?? 0) + 2}rem`,
     };
     return (
-      <p className={classNames('line', className)} style={style} data-line-number={node.enumerator}>
+      <p className={classNames('myst-algorithm-line', className)} style={style} data-line-number={node.enumerator}>
         <MyST ast={node.children} />
       </p>
     );
@@ -232,8 +232,8 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
       );
     }
     return (
-      <li className={classNames('task-list-item', className)}>
-        <input type="checkbox" className="task-list-item-checkbox" defaultChecked={node.checked} />
+      <li className={classNames('myst-task-list-item', className)}>
+        <input type="checkbox" className="myst-task-list-checkbox" defaultChecked={node.checked} />
         <MyST ast={node.children} />
       </li>
     );
@@ -244,7 +244,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
       <figure
         id={node.html_id || node.identifier || node.key}
         className={classNames(
-          { [figureName]: !!node.kind, subcontainer: node.subcontainer },
+          { [figureName]: !!node.kind, 'myst-subcontainer': node.subcontainer },
           node.class,
           className,
         )}
@@ -255,14 +255,14 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
   },
   caption({ node, className }) {
     return (
-      <figcaption className={classNames('group', className)}>
+      <figcaption className={classNames('myst-caption', className)}>
         <MyST ast={node.children} />
       </figcaption>
     );
   },
   legend({ node, className }) {
     return (
-      <figcaption className={classNames('text-sm', className)}>
+      <figcaption className={classNames('myst-legend', className)}>
         <MyST ast={node.children} />
       </figcaption>
     );
@@ -275,7 +275,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
     );
   },
   thematicBreak() {
-    return <hr className="py-2 my-5 translate-y-2" />;
+    return <hr className="myst-thematic-break" />;
   },
   captionNumber({ node, className }) {
     const id = node.html_id || node.identifier || node.key;
@@ -284,7 +284,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
         id={id}
         kind={node.kind}
         className={classNames(
-          'mr-1 font-semibold text-inherit hover:text-inherit hover:font-semibold',
+          'myst-caption-number',
           className,
         )}
       >
@@ -316,9 +316,9 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
       colSpan: ifGreaterThanOne(node.colspan),
     };
     const align = {
-      'text-left': node.align === 'left',
-      'text-right': node.align === 'right',
-      'text-center': node.align === 'center',
+      'myst-table-cell-left': node.align === 'left',
+      'myst-table-cell-right': node.align === 'right',
+      'myst-table-cell-center': node.align === 'center',
     };
     if (node.header)
       return (
@@ -349,7 +349,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
   abbreviation({ node, className }) {
     return (
       <Tooltip title={node.title} className={classNames(className)}>
-        <abbr aria-label={node.title} className="border-b border-dotted cursor-help">
+        <abbr aria-label={node.title} className="myst-abbreviation">
           <MyST ast={node.children} />
         </abbr>
       </Tooltip>
@@ -364,7 +364,7 @@ const BASIC_RENDERERS: BasicNodeRenderers = {
   definitionList({ node, className }) {
     return (
       <dl
-        className={classNames('my-5', className)}
+        className={classNames('myst-definition-list', className)}
         id={node.html_id || node.identifier || node.key}
       >
         <MyST ast={node.children} />

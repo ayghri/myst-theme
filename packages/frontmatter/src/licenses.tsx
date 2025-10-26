@@ -39,17 +39,17 @@ export function CreativeCommonsBadge({
       target="_blank"
       rel="noopener noreferrer"
       className={classNames(
-        'opacity-50 hover:opacity-100 text-inherit hover:text-inherit',
+        'myst-fm-cc-badge',
         className,
       )}
       aria-label={title}
     >
-      <CcIcon width="1.25rem" height="1.25rem" className="inline-block mx-1" title={title} />
+      <CcIcon width="1.25rem" height="1.25rem" className="myst-fm-cc-icon" title={title} />
       {(kind.startsWith('CC0') || kind.startsWith('CC-0') || kind.includes('ZERO')) && (
         <CcZeroIcon
           width="1.25rem"
           height="1.25rem"
-          className="inline-block mr-1"
+          className="myst-fm-cc-icon-type"
           title="CC0: Work is in the worldwide public domain"
         />
       )}
@@ -57,7 +57,7 @@ export function CreativeCommonsBadge({
         <CcByIcon
           width="1.25rem"
           height="1.25rem"
-          className="inline-block mr-1"
+          className="myst-fm-cc-icon-type"
           title="Credit must be given to the creator"
         />
       )}
@@ -65,7 +65,7 @@ export function CreativeCommonsBadge({
         <CcNcIcon
           width="1.25rem"
           height="1.25rem"
-          className="inline-block mr-1"
+          className="myst-fm-cc-icon-type"
           title="Only noncommercial uses of the work are permitted"
         />
       )}
@@ -73,7 +73,7 @@ export function CreativeCommonsBadge({
         <CcSaIcon
           width="1.25rem"
           height="1.25rem"
-          className="inline-block mr-1"
+          className="myst-fm-cc-icon-type"
           title="Adaptations must be shared under the same terms"
         />
       )}
@@ -81,7 +81,7 @@ export function CreativeCommonsBadge({
         <CcNdIcon
           width="1.25rem"
           height="1.25rem"
-          className="inline-block mr-1"
+          className="myst-fm-cc-icon-type"
           title="No derivatives or adaptations of the work are permitted"
         />
       )}
@@ -113,13 +113,13 @@ function SingleLicenseBadge({
       target="_blank"
       rel="noopener noreferrer"
       title={`${preamble}${license.name ?? (license as any).title} (${license.id})`}
-      className="text-inherit hover:text-inherit"
+      className="myst-fm-license-badge"
     >
       {!license.osi && (
         <ScaleIcon
           width="1.25rem"
           height="1.25rem"
-          className={classNames('mx-1 inline-block opacity-60 hover:opacity-100', className)}
+          className={classNames('myst-fm-license-icon', className)}
         />
       )}
       {license.osi && (
@@ -127,7 +127,7 @@ function SingleLicenseBadge({
           width="1.25rem"
           height="1.25rem"
           className={classNames(
-            'mx-1 inline-block opacity-60 hover:opacity-100 hover:text-[#599F46]',
+            'myst-fm-license-icon-osi',
             className,
           )}
         />

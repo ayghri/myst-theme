@@ -158,12 +158,12 @@ export function CrossReferenceHover({
     <HoverPopover
       card={({ load }) => (
         <XRefProvider remote={remote} remoteBaseUrl={remoteBaseUrl} url={url} dataUrl={dataUrl}>
-          <div className="hover-document article w-[500px] sm:max-w-[500px] overflow-auto">
+          <div className="myst-xref-document">
             {remoteBaseUrl && (
-              <div className="w-full px-3 py-1 text-xs border-b bg-gray-50">
-                <strong className="text-gray-700">Source: </strong>
+              <div className="myst-xref-source-header">
+                <strong className="myst-xref-source-label">Source: </strong>
                 <a
-                  className={classNames('text-gray-700', className)}
+                  className={classNames('myst-xref-source-link', className)}
                   href={`${createRemoteBaseUrl(url, remoteBaseUrl)}${htmlId ? `#${htmlId}` : ''}`}
                   target="_blank"
                 >
@@ -171,7 +171,7 @@ export function CrossReferenceHover({
                 </a>
               </div>
             )}
-            <div className="px-3">
+            <div className="myst-xref-content">
               <XrefChildren load={load} identifier={identifier} />
             </div>
           </div>
@@ -183,7 +183,7 @@ export function CrossReferenceHover({
           <a
             href={`${createRemoteBaseUrl(url, remoteBaseUrl)}${htmlId ? `#${htmlId}` : ''}`}
             target="_blank"
-            className={classNames({ 'hover-link': !isButtonLike }, className)}
+            className={classNames({ 'myst-xref-link': !isButtonLike }, className)}
           >
             {children}
           </a>
@@ -192,7 +192,7 @@ export function CrossReferenceHover({
           <Link
             to={`${withBaseurl(url, baseurl)}${htmlId ? `#${htmlId}` : ''}`}
             prefetch="intent"
-            className={classNames({ 'hover-link': !isButtonLike }, className)}
+            className={classNames({ 'myst-xref-link': !isButtonLike }, className)}
           >
             {children}
           </Link>
@@ -201,7 +201,7 @@ export function CrossReferenceHover({
           <a
             href={`#${htmlId}`}
             onClick={scroll}
-            className={classNames({ 'hover-link': !isButtonLike }, className)}
+            className={classNames({ 'myst-xref-link': !isButtonLike }, className)}
           >
             {children}
           </a>

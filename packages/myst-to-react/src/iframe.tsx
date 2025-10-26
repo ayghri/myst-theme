@@ -28,10 +28,10 @@ export const IFrame: NodeRenderer = ({ node, className }) => {
     <div
       id={node.label || undefined}
       style={{ textAlign: node.align || 'center' }}
-      className={classNames('leading-[0]', node.class, className)}
+      className={classNames('myst-iframe-container', node.class, className)}
     >
       <div
-        className="relative inline-block"
+        className="myst-iframe-wrapper"
         style={{
           paddingBottom: '60%',
           width: `min(max(${width}%, 500px), 100%)`,

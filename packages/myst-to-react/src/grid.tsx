@@ -117,9 +117,9 @@ function Grid({
   className?: string;
 }) {
   const gridClasses = gridColumnClasses(columns);
-  const gutterClasses = 'gap-4';
+  const gutterClasses = 'myst-grid-gutter';
   return (
-    <div className={classNames('myst-grid grid my-5', gridClasses, gutterClasses, className)}>
+    <div className={classNames('myst-grid', gridClasses, gutterClasses, className)}>
       {children}
     </div>
   );

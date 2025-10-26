@@ -23,7 +23,7 @@ export function HoverPopover({
       </HoverCard.Trigger>
       <HoverCard.Portal>
         <HoverCard.Content
-          className="exclude-from-outline hover-card-content"
+          className="myst-hover-card"
           sideOffset={5}
           side={side}
         >
@@ -50,14 +50,14 @@ export function Tooltip({
       card={
         <div
           className={classNames(
-            'p-1 text-xs text-white bg-blue-900 dark:bg-white dark:text-black',
+            'myst-tooltip',
             className,
           )}
         >
           {title}
         </div>
       }
-      arrowClass="fill-blue-900 dark:fill-white"
+      arrowClass="myst-tooltip-arrow"
     >
       {children}
     </HoverPopover>

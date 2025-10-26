@@ -15,11 +15,10 @@ export function CopyIcon({ text, className }: { text: string; className?: string
     <button
       title={copied ? 'Copied!!' : 'Copy to Clipboard'}
       className={classNames(
-        'inline-flex items-center opacity-0 group-hover:opacity-100 hover:opacity-100 focus:opacity-100 active:opacity-100 cursor-pointer ml-2',
-        'transition-color duration-200 ease-in-out',
+        'myst-copy-button',
         {
-          'text-blue-400 hover:text-blue-500': !copied,
-          'text-green-500 hover:text-green-500': copied,
+          'myst-copy-button-default': !copied,
+          'myst-copy-button-success': copied,
         },
         className,
       )}
@@ -28,7 +27,7 @@ export function CopyIcon({ text, className }: { text: string; className?: string
       aria-label="Copy code to clipboard"
     >
       {copied ? (
-        <CheckIcon width={24} height={24} className="text-success" />
+        <CheckIcon width={24} height={24} className="myst-copy-icon-success" />
       ) : (
         <DocumentDuplicateIcon width={24} height={24} />
       )}

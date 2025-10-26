@@ -1,0 +1,768 @@
+/* MyST-to-React Package Styles */
+
+/* ============================================ */
+/* 1. Admonitions */
+/* ============================================ */
+
+.myst-admonition-icon {
+    @apply myst-admonition-header-icon inline-block pl-2 mr-2 self-center flex-none;
+}
+
+.myst-admonition {
+    @apply my-5 shadow-md dark:shadow-2xl dark:shadow-neutral-900 bg-gray-50/10 dark:bg-stone-800 overflow-hidden;
+}
+
+.myst-admonition-default {
+    @apply rounded border-l-4;
+}
+
+.myst-admonition-simple {
+    @apply border-l-2;
+}
+
+.myst-admonition-blue {
+    @apply border-blue-500;
+}
+
+.myst-admonition-green {
+    @apply border-green-600;
+}
+
+.myst-admonition-yellow {
+    @apply border-amber-600;
+}
+
+.myst-admonition-red {
+    @apply border-red-600;
+}
+
+.myst-admonition-header {
+    @apply m-0 font-medium py-1 flex min-w-0;
+}
+
+.myst-admonition-header-default {
+    @apply text-lg;
+}
+
+.myst-admonition-header-simple {
+    @apply text-md bg-gray-100 dark:bg-stone-700;
+}
+
+.myst-admonition-header-blue {
+    @apply text-blue-600 bg-blue-50 dark:bg-slate-900;
+}
+
+.myst-admonition-header-green {
+    @apply text-green-600 bg-green-50 dark:bg-slate-900;
+}
+
+.myst-admonition-header-yellow {
+    @apply text-amber-600 bg-amber-50 dark:bg-slate-900;
+}
+
+.myst-admonition-header-red {
+    @apply text-red-600 bg-red-50 dark:bg-slate-900;
+}
+
+.myst-admonition-header-dropdown {
+    @apply cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03];
+}
+
+.myst-admonition-header-text {
+    @apply text-neutral-900 dark:text-white grow self-center overflow-hidden break-words;
+}
+
+.myst-admonition-header-text-no-icon {
+    @apply ml-4;
+}
+
+.myst-admonition-icon-blue {
+    @apply text-blue-600;
+}
+
+.myst-admonition-icon-green {
+    @apply text-green-600;
+}
+
+.myst-admonition-icon-yellow {
+    @apply text-amber-600;
+}
+
+.myst-admonition-icon-red {
+    @apply text-red-600;
+}
+
+.myst-admonition-chevron-container {
+    @apply self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200;
+}
+
+.myst-admonition-chevron {
+    @apply transition-transform details-toggle;
+}
+
+.myst-admonition-body {
+    @apply px-4;
+}
+
+.myst-admonition-body-default {
+    @apply py-1;
+}
+
+/* ============================================ */
+/* 2. Aside */
+/* ============================================ */
+
+.myst-aside-topic {
+    @apply my-5 shadow dark:bg-stone-800 overflow-hidden dark:border-l-4 border-slate-400;
+}
+
+.myst-aside-title-topic {
+    @apply m-0 font-medium py-2 px-4 flex min-w-0 text-md border-y dark:border-y-0 bg-gray-50/80 dark:bg-slate-900;
+}
+
+.myst-aside-body-topic {
+    @apply px-4;
+}
+
+.myst-aside {
+    @apply text-sm lg:h-0 col-margin-right;
+}
+
+.myst-aside-title {
+    @apply text-base font-semibold;
+}
+
+.myst-aside-body {
+    @apply px-4;
+}
+
+/* ============================================ */
+/* 3. Basic Elements */
+/* ============================================ */
+
+.myst-algorithm-line {
+    @apply line;
+}
+
+.myst-task-list-item {
+    @apply task-list-item;
+}
+
+.myst-task-list-checkbox {
+    @apply task-list-item-checkbox;
+}
+
+.myst-subcontainer {
+    @apply subcontainer;
+}
+
+.myst-caption {
+    @apply group;
+}
+
+.myst-legend {
+    @apply text-sm;
+}
+
+.myst-thematic-break {
+    @apply py-2 my-5 translate-y-2;
+}
+
+.myst-caption-number {
+    @apply mr-1 font-semibold text-inherit hover:text-inherit hover:font-semibold;
+}
+
+.myst-table-cell-left {
+    @apply text-left;
+}
+
+.myst-table-cell-right {
+    @apply text-right;
+}
+
+.myst-table-cell-center {
+    @apply text-center;
+}
+
+.myst-abbreviation {
+    @apply border-b border-dotted cursor-help;
+}
+
+.myst-definition-list {
+    @apply my-5;
+}
+
+/* ============================================ */
+/* 4. Card */
+/* ============================================ */
+
+.myst-card-header {
+    @apply py-1 pl-3 m-0 border-b border-gray-100 bg-gray-50 dark:bg-slate-900 dark:border-gray-800;
+}
+
+.myst-card-footer {
+    @apply py-1 pl-3 m-0 border-t border-gray-100 bg-gray-50 dark:bg-slate-900 dark:border-gray-800;
+}
+
+.myst-card-title {
+    @apply pt-3 font-bold group-hover:underline;
+}
+
+.myst-card {
+    @apply my-5 rounded shadow dark:shadow-neutral-800 overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col;
+}
+
+.myst-card-link {
+    @apply text-inherit hover:text-inherit block font-normal no-underline hover:no-underline cursor-pointer group hover:border-blue-500 dark:hover:border-blue-400;
+}
+
+.myst-card-body {
+    @apply flex-grow px-4 py-2;
+}
+
+/* ============================================ */
+/* 5. Citations */
+/* ============================================ */
+
+.myst-cite-document {
+    @apply hover-document article w-[500px] sm:max-w-[500px] p-3;
+}
+
+.myst-cite-group {
+    @apply cite-group;
+}
+
+.myst-xref-group {
+    @apply xref-group;
+}
+
+.myst-cite-narrative {
+    @apply narrative;
+}
+
+.myst-cite-parenthetical {
+    @apply parenthetical;
+}
+
+.myst-cite-link {
+    @apply hover-link;
+}
+
+/* ============================================ */
+/* 6. Code */
+/* ============================================ */
+
+.myst-code {
+    @apply relative group not-prose;
+}
+
+.myst-code-shadow {
+    @apply my-5 text-sm shadow hover:shadow-md dark:shadow-2xl dark:shadow-neutral-900;
+}
+
+.myst-code-background {
+    @apply bg-stone-200/10;
+}
+
+.myst-code-border {
+    @apply border border-l-4 border-gray-200 border-l-blue-400 dark:border-l-blue-400 dark:border-gray-800;
+}
+
+.myst-code-filename {
+    @apply flex flex-row pl-2 bg-white border-b dark:bg-slate-600 dark:border-slate-300;
+}
+
+.myst-code-filename-icon {
+    @apply inline-block flex-none self-center text-gray-500 dark:text-gray-100;
+}
+
+.myst-code-filename-title {
+    @apply self-center p-2 text-sm leading-3 prose text-slate-600 dark:text-white;
+}
+
+.myst-code-body {
+    @apply block overflow-auto p-3 hljs;
+}
+
+.myst-code-copy-icon {
+    @apply absolute right-1;
+}
+
+.myst-code-copy-with-filename {
+    @apply top-[32px];
+}
+
+.myst-code-copy-no-filename {
+    @apply top-1;
+}
+
+.myst-code-inline {
+    @apply px-1 rounded bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-100;
+}
+
+.myst-color-indicator {
+    @apply inline-block w-[10px] h-[10px] rounded-full ml-1;
+}
+
+/* ============================================ */
+/* 7. Cross References */
+/* ============================================ */
+
+.myst-xref-document {
+    @apply hover-document article w-[500px] sm:max-w-[500px] overflow-auto;
+}
+
+.myst-xref-source-header {
+    @apply w-full px-3 py-1 text-xs border-b bg-gray-50;
+}
+
+.myst-xref-source-label {
+    @apply text-gray-700;
+}
+
+.myst-xref-source-link {
+    @apply text-gray-700;
+}
+
+.myst-xref-content {
+    @apply px-3;
+}
+
+.myst-xref-link {
+    @apply hover-link;
+}
+
+/* ============================================ */
+/* 8. Dropdown */
+/* ============================================ */
+
+.myst-dropdown {
+    @apply rounded-md my-5 shadow dark:shadow-2xl dark:shadow-neutral-900 overflow-hidden bg-gray-50 dark:bg-stone-800;
+}
+
+.myst-dropdown-header {
+    @apply m-0 text-lg font-medium py-1 min-h-[2em] pl-3 cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03] bg-gray-100 dark:bg-slate-900;
+}
+
+.myst-dropdown-header-title {
+    @apply text-neutral-900 dark:text-white;
+}
+
+.myst-dropdown-chevron-container {
+    @apply block float-right text-sm font-thin text-neutral-700 dark:text-neutral-200;
+}
+
+.myst-dropdown-chevron {
+    @apply inline-block pl-2 mr-2 -translate-y-[1px] details-toggle transition-transform;
+}
+
+.myst-dropdown-body {
+    @apply px-4 py-1 details-body;
+}
+
+/* ============================================ */
+/* 9. Exercise */
+/* ============================================ */
+
+.myst-exercise {
+    @apply my-5 shadow dark:bg-stone-800 overflow-hidden dark:border-l-4 border-slate-400;
+}
+
+.myst-exercise-gray {
+    @apply dark:border-gray-500/60;
+}
+
+.myst-exercise-blue {
+    @apply dark:border-blue-500/60;
+}
+
+.myst-exercise-green {
+    @apply dark:border-green-500/60;
+}
+
+.myst-exercise-yellow {
+    @apply dark:border-amber-500/70;
+}
+
+.myst-exercise-orange {
+    @apply dark:border-orange-500/60;
+}
+
+.myst-exercise-red {
+    @apply dark:border-red-500/60;
+}
+
+.myst-exercise-purple {
+    @apply dark:border-purple-500/60;
+}
+
+.myst-exercise-header {
+    @apply m-0 font-medium py-2 flex min-w-0 text-md border-y dark:border-y-0;
+}
+
+.myst-exercise-header-gray {
+    @apply bg-gray-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-blue {
+    @apply bg-blue-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-green {
+    @apply bg-green-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-yellow {
+    @apply bg-amber-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-orange {
+    @apply bg-orange-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-red {
+    @apply bg-red-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-purple {
+    @apply bg-purple-50/80 dark:bg-slate-900;
+}
+
+.myst-exercise-header-dropdown {
+    @apply cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03];
+}
+
+.myst-exercise-icon {
+    @apply inline-block pl-2 mr-2 self-center flex-none;
+}
+
+.myst-exercise-icon-gray {
+    @apply text-gray-600;
+}
+
+.myst-exercise-icon-blue {
+    @apply text-blue-600;
+}
+
+.myst-exercise-icon-green {
+    @apply text-green-600;
+}
+
+.myst-exercise-icon-yellow {
+    @apply text-amber-600;
+}
+
+.myst-exercise-icon-orange {
+    @apply text-orange-600;
+}
+
+.myst-exercise-icon-red {
+    @apply text-red-600;
+}
+
+.myst-exercise-icon-purple {
+    @apply text-purple-600;
+}
+
+.myst-exercise-title {
+    @apply text-neutral-900 dark:text-white grow self-center overflow-hidden break-words group;
+}
+
+.myst-exercise-title-no-icon {
+    @apply ml-4;
+}
+
+.myst-exercise-chevron-container {
+    @apply self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200;
+}
+
+.myst-exercise-chevron {
+    @apply transition-transform details-toggle;
+}
+
+.myst-exercise-body {
+    @apply px-4;
+}
+
+/* ============================================ */
+/* 10. Footnotes */
+/* ============================================ */
+
+.myst-footnote-document {
+    @apply hover-document article w-[500px] sm:max-w-[500px] px-3 text-sm;
+}
+
+.myst-footnote-link {
+    @apply hover-link;
+}
+
+/* ============================================ */
+/* 11. Grid */
+/* ============================================ */
+
+.myst-grid {
+    @apply grid my-5;
+}
+
+.myst-grid-gutter {
+    @apply gap-4;
+}
+
+/* ============================================ */
+/* 12. Hash Link */
+/* ============================================ */
+
+.myst-hash-link {
+    @apply no-underline text-inherit hover:text-inherit;
+}
+
+.myst-hash-link-no-width {
+    @apply inline-block w-0 px-0 translate-x-[10px];
+}
+
+.myst-hash-link-hover {
+    @apply transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70;
+}
+
+.myst-hash-link-hover-desktop {
+    @apply [@media(hover:hover)]:transition-opacity [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:focus:opacity-100 [@media(hover:hover)]:group-hover:opacity-70;
+}
+
+.myst-hash-link-static {
+    @apply hover:underline;
+}
+
+/* ============================================ */
+/* 13. Heading */
+/* ============================================ */
+
+.myst-heading {
+    @apply relative group;
+}
+
+.myst-heading-enumerator {
+    @apply mr-3 select-none;
+}
+
+.myst-heading-text {
+    @apply heading-text;
+}
+
+/* ============================================ */
+/* 14. IFrame */
+/* ============================================ */
+
+.myst-iframe-container {
+    @apply leading-[0];
+}
+
+.myst-iframe-wrapper {
+    @apply relative inline-block;
+}
+
+/* ============================================ */
+/* 15. Inline Error&Expression */
+/* ============================================ */
+
+.myst-inline-error {
+    /* To be defined as needed */
+    @apply text-yellow-600;
+}
+
+.myst-inline-error-icon {
+    @apply inline mr-1;
+}
+
+.myst-inline-expression {
+    @apply border-b border-dotted cursor-help;
+}
+
+/* ============================================ */
+/* 16. Proof */
+/* ============================================ */
+
+.myst-proof {
+    @apply my-5 shadow dark:bg-stone-800 overflow-hidden dark:border-l-4 border-slate-400;
+}
+
+.myst-proof-gray {
+    @apply dark:border-gray-500/60;
+}
+
+.myst-proof-blue {
+    @apply dark:border-blue-500/60;
+}
+
+.myst-proof-green {
+    @apply dark:border-green-500/60;
+}
+
+.myst-proof-yellow {
+    @apply dark:border-amber-500/70;
+}
+
+.myst-proof-orange {
+    @apply dark:border-orange-500/60;
+}
+
+.myst-proof-red {
+    @apply dark:border-red-500/60;
+}
+
+.myst-proof-purple {
+    @apply dark:border-purple-500/60;
+}
+
+.myst-proof-header {
+    @apply m-0 font-medium py-2 flex min-w-0 text-md border-y dark:border-y-0;
+}
+
+.myst-proof-header-gray {
+    @apply bg-gray-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-blue {
+    @apply bg-blue-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-green {
+    @apply bg-green-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-yellow {
+    @apply bg-amber-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-orange {
+    @apply bg-orange-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-red {
+    @apply bg-red-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-purple {
+    @apply bg-purple-50/80 dark:bg-slate-900;
+}
+
+.myst-proof-header-dropdown {
+    @apply cursor-pointer hover:shadow-[inset_0_0_0px_30px_#00000003] dark:hover:shadow-[inset_0_0_0px_30px_#FFFFFF03];
+}
+
+.myst-proof-title {
+    @apply text-neutral-900 dark:text-white grow self-center overflow-hidden break-words ml-4;
+}
+
+.myst-proof-chevron-container {
+    @apply self-center flex-none text-sm font-thin text-neutral-700 dark:text-neutral-200;
+}
+
+/* double check this */
+.myst-proof-chevron {
+    @apply inline-block pl-2 mr-2 self-center flex-none;
+}
+
+.myst-proof-body {
+    @apply px-4;
+}
+
+/* ============================================ */
+/* 17. Tabs */
+/* ============================================ */
+
+.myst-tab-set {
+    @apply my-5;
+}
+
+.myst-tab-set-row {
+    @apply flex flex-row flex-wrap overflow-x-auto border-b border-b-gray-100;
+}
+
+.myst-tab-item-header {
+    @apply flex-none px-3 py-1 font-semibold cursor-pointer;
+}
+
+.myst-tab-item-header-active {
+    @apply text-blue-600 border-b-2 border-b-blue-600 dark:border-b-white dark:text-white;
+}
+
+.myst-tab-item-header-inactive {
+    @apply text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100;
+}
+
+.myst-tab-item-body {
+    @apply flex shadow;
+}
+
+.myst-tab-item-text {
+    @apply w-full px-6;
+}
+
+
+/* ============================================ */
+/* 18. Components - CopyIcon */
+/* ============================================ */
+
+.myst-copy-button {
+    @apply inline-flex items-center opacity-0 group-hover:opacity-100 hover:opacity-100 focus:opacity-100 active:opacity-100 cursor-pointer ml-2 transition-color duration-200 ease-in-out;
+}
+
+.myst-copy-button-default {
+    @apply text-blue-400 hover:text-blue-500;
+}
+
+.myst-copy-button-success {
+    @apply text-green-500 hover:text-green-500;
+}
+
+.myst-copy-icon-success {
+    @apply text-success;
+}
+
+/* ============================================ */
+/* 19. Components - HoverPopover */
+/* ============================================ */
+
+.myst-hover-card {
+    @apply exclude-from-outline hover-card-content;
+}
+
+.myst-tooltip {
+    @apply p-1 text-xs text-white bg-blue-900 dark:bg-white dark:text-black;
+}
+
+.myst-tooltip-arrow {
+    @apply fill-blue-900 dark:fill-white;
+}
+
+/* ============================================ */
+/* 20. Components - LinkCard */
+/* ============================================ */
+
+.myst-link-card {
+    @apply hover-card-content rounded overflow-hidden;
+}
+
+.myst-link-card-loading {
+    @apply animate-pulse;
+}
+
+.myst-link-card-image {
+    @apply w-full h-[150px] object-cover object-top object-left m-0;
+}
+
+.myst-link-card-placeholder {
+    @apply animate-pulse bg-slate-100 dark:bg-slate-800 w-full h-[150px];
+}
+
+.myst-link-card-link {
+    @apply block px-3 mt-3 text-sm font-semibold text-inherit hover:text-inherit;
+}
+
+.myst-link-card-icon {
+    @apply float-right;
+}
+
+.myst-link-card-description {
+    @apply p-3 prose text-sm max-h-[300px] overflow-hidden;
+}

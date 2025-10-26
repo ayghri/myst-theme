@@ -16,7 +16,7 @@ function useNumberedReferences(): boolean {
 function CiteChild({ html }: { html?: string }) {
   return (
     <div
-      className="hover-document article w-[500px] sm:max-w-[500px] p-3"
+      className="myst-cite-document"
       dangerouslySetInnerHTML={{ __html: html || '' }}
     />
   );
@@ -28,10 +28,10 @@ export const CiteGroup: NodeRenderer<GenericParent> = ({ node, className }) => {
     <span
       className={classNames(
         {
-          'cite-group': allCite,
-          'xref-group': !allCite,
-          narrative: node.kind === 'narrative',
-          parenthetical: node.kind === 'parenthetical',
+          'myst-cite-group': allCite,
+          'myst-xref-group': !allCite,
+          'myst-cite-narrative': node.kind === 'narrative',
+          'myst-cite-parenthetical': node.kind === 'parenthetical',
         },
         className,
       )}
@@ -76,12 +76,12 @@ export const Cite = ({
             href={url}
             target="_blank"
             rel="noreferrer"
-            className={classNames({ 'hover-link': !isButtonLike })}
+            className={classNames({ 'myst-cite-link': !isButtonLike })}
           >
             {children}
           </a>
         )}
-        {!url && <span className="hover-link">{children}</span>}
+        {!url && <span className="myst-cite-link">{children}</span>}
       </cite>
     </HoverPopover>
   );
