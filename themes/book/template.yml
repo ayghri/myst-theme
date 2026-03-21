@@ -78,6 +78,12 @@ options:
   - type: file
     id: style
     description: Local path to a CSS file
+  - type: string
+    id: remark42_url
+    description: URL of the remark42 comment server (e.g. https://comments.example.com)
+  - type: file
+    id: custom_js
+    description: Local path to a custom JavaScript file
 parts:
   - id: footer
     description: The site wide footer

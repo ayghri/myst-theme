@@ -31,6 +31,7 @@ import { MyST } from 'myst-to-react';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import type { SiteAction } from 'myst-config';
 import type { TemplateOptions } from '../types.js';
+import { Remark42Comments } from './Remark42Comments.js';
 
 /**
  * Combines the project downloads and the export options
@@ -67,10 +68,11 @@ export const ArticlePage = React.memo(function ({
   const pageDesign: TemplateOptions = (article.frontmatter as any)?.site ?? {};
   const siteDesign: TemplateOptions =
     (useSiteManifest() as SiteManifest & TemplateOptions)?.options ?? {};
-  const { hide_title_block, hide_footer_links, hide_outline, outline_maxdepth, hide_authors } = {
+  const { hide_title_block, hide_footer_links, hide_outline, outline_maxdepth, hide_authors, remark42_url } = {
     ...siteDesign,
     ...pageDesign,
   };
+  const remark42Id = (article.frontmatter as any)?.site?.remark42_id as string | undefined;
   const downloads = combineDownloads(manifest?.downloads, article.frontmatter);
   const tree = copyNode(article.mdast);
   const keywords = article.frontmatter?.keywords ?? [];
@@ -122,6 +124,9 @@ export const ArticlePage = React.memo(function ({
           <Footnotes />
           <Bibliography />
           <ConnectionStatusTray />
+          {remark42_url && remark42Id && (
+            <Remark42Comments remark42Id={remark42Id} />
+          )}
           {!hide_footer_links && !hide_all_footer_links && (
             <FooterLinksBlock links={article.footer} />
           )}

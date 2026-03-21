@@ -3,6 +3,7 @@ import tailwind from '~/styles/app.css';
 import thebeCoreCss from 'thebe-core/dist/lib/thebe-core.css';
 import { getConfig } from '~/utils/loaders.server';
 import type { SiteLoader } from '@myst-theme/common';
+import type { TemplateOptions } from './types.js';
 import {
   Document,
   responseNoSite,
@@ -135,6 +136,9 @@ function NoCSSWarning() {
 
 export default function AppWithReload() {
   const { theme, config, CONTENT_CDN_PORT, MODE, BASE_URL } = useLoaderData<SiteLoader>();
+  const options = (config as any)?.options as TemplateOptions | undefined;
+  const remark42Url = options?.remark42_url;
+  const customJs = options?.custom_js;
 
   const searchFactory = useCallback((index: MystSearchIndex) => createSearch(index), []);
 
@@ -151,6 +155,17 @@ export default function AppWithReload() {
           <>
             <link rel="icon" href={`${BASE_URL || ''}/favicon.ico`} />
             <link rel="stylesheet" href={`${BASE_URL || ''}/myst-theme.css`} />
+            {remark42Url && (
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `var remark_config = { host: "${remark42Url}", site_id: "remark" }`,
+                }}
+              />
+            )}
+            {remark42Url && (
+              <script async src={`${remark42Url}/web/embed.js`} />
+            )}
+            {customJs && <script async src={`${BASE_URL || ''}/${customJs}`} />}
           </>
         }
       >
