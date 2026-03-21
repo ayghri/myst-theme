@@ -13,7 +13,7 @@ build-theme:
 	npm install
 	mkdir .deploy || true
 	rm -rf .deploy/$(THEME)
-	git clone --depth 1 https://github.com/myst-templates/$(THEME)-theme .deploy/$(THEME)
+	# git clone --depth 1 https://github.com/myst-templates/$(THEME)-theme .deploy/$(THEME)
 	rm -rf .deploy/$(THEME)/public .deploy/$(THEME)/build .deploy/$(THEME)/package.json .deploy/$(THEME)/package-lock.json .deploy/$(THEME)/template.yml .deploy/$(THEME)/server.js
 	find template -type f  -exec cp {} .deploy/$(THEME) \;
 	rm -rf themes/$(THEME)/{public,build}
@@ -25,6 +25,7 @@ build-theme:
 	sed -i.bak "s/VERSION/$(VERSION)/g" .deploy/$(THEME)/package.json
 	rm .deploy/$(THEME)/package.json.bak
 	cd .deploy/$(THEME) && npm install
+	cp -r ./.deploy/book ../../website/blog/theme/
 
 build-article:
 	make THEME=article build-theme
